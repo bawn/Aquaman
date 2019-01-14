@@ -9,7 +9,6 @@ target 'Aquaman-Demo' do
 
   pod 'SnapKit'
   pod 'MJRefresh'
-  pod 'Reveal-SDK', :configurations => ['Debug']
   # Pods for Aquaman-Demo
 
 end

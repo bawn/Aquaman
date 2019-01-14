@@ -1,1 +1,134 @@
 # Aquaman
+
+![License MIT](https://img.shields.io/dub/l/vibe-d.svg)
+![Pod version](http://img.shields.io/cocoapods/v/Aquaman.svg?style=flat)
+![Platform info](http://img.shields.io/cocoapods/p/LCNetwork.svg?style=flat)
+[![Support](https://img.shields.io/badge/support-iOS9.0+-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
+
+A pure-Swift library for nested display of horizontal and vertical scrolling views.
+
+## Requirements
+
+- iOS 9.0+ 
+- Swift 4.2+
+- Xcode 10+
+
+
+
+## Installation
+
+#### [CocoaPods](http://cocoapods.org/) (recommended)
+
+```
+use_frameworks!
+
+# Latest release in CocoaPods
+pod 'Aquaman'
+```
+
+## Usage
+
+First make sure to import the framework:
+
+```
+import Aquaman
+```
+
+Basically, we just need to provide the list of child view controllers to show. Then call some necessary methods.
+
+Let's see the steps to do this:
+
+##### Create a AquamanPageViewController subclass
+
+```swift
+import Aquaman
+
+class PageViewController: AquamanPageViewController {
+  // ...
+}
+```
+
+##### Provide the view controllers that will appear embedded into the AquamanPageViewController
+
+```swift
+override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
+    return count
+}
+    
+override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
+    // ...
+    return viewController
+}
+    
+```
+
+Every UIViewController that will appear within the AquamanPageViewController should conform to `AquamanChildViewController` by implementing `func aquamanChildScrollView() -> UIScrollView` and call `func childScrollViewDidScroll(_ scrollView: UIScrollView)` in `func scrollViewDidScroll(_ scrollView: UIScrollView)`
+
+
+
+```swift
+class ChildViewController: UIViewController, AquamanChildViewController {
+
+    @IBOutlet weak var tableView: UITableView!
+    func aquamanChildScrollView() -> UIScrollView {
+        return tableView
+    }
+    // ...
+}
+```
+
+```swift
+extension ChildViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        amPageViewContoller?.childScrollViewDidScroll(scrollView)
+    }
+}
+```
+
+
+
+##### Provide the headerView and headerView height 
+
+```swift
+override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
+    return HeaderView()
+}
+
+override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+    return headerViewHeight
+}
+```
+
+##### Provide the menuView and menuView height
+
+```swift
+override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
+    return menuView
+}
+
+override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+    return menuViewHeight
+}
+```
+
+##### Update menuView's layout when content scroll view did scroll and check state when did end scoll
+
+```swift
+override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
+    menuView.updateLayout(scrollView)
+}
+
+override func pageController(_ pageController: AquamanPageViewController,
+                             contentScrollViewDidEndScroll scrollView: UIScrollView) {
+    menuView.checkState()
+}
+```
+
+
+
+
+
+### License
+
+Aquaman is released under the MIT license. See LICENSE for details.

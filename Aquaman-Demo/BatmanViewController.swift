@@ -74,7 +74,7 @@ extension BatmanViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageViewContoller?.childScrollViewDidScroll(scrollView)
+        amPageViewContoller?.childScrollViewDidScroll(scrollView)
     }
     
 }

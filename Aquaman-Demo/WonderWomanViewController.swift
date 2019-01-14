@@ -55,6 +55,6 @@ extension WonderWomanViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageViewContoller?.childScrollViewDidScroll(scrollView)
+        amPageViewContoller?.childScrollViewDidScroll(scrollView)
     }
 }

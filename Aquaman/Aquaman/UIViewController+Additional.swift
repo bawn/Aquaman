@@ -28,7 +28,7 @@ import UIKit
 
 extension UIViewController {
     
-    public var pageViewContoller: AquamanPageViewController? {
+    public var amPageViewContoller: AquamanPageViewController? {
         return parent as? AquamanPageViewController
     }
     

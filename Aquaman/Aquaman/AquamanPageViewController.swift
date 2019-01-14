@@ -147,7 +147,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private let menuContentView = UIView()
     private var menuViewHeight: CGFloat = 0.0
     private var menuViewPinHeight: CGFloat = 0.0
-    private var sillValue: CGFloat = 0.0 /// 子 ScrollView 到达顶端的阀值
+    private var sillValue: CGFloat = 0.0
     private var childControllerCount = 0
     private var headerView: UIView?
     private var menuView: UIView?
