@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
   s.swift_version    = "4.2"
   s.source           = { :git => "https://github.com/bawn/Aquaman.git", :tag => s.version.to_s }
   s.platform         = :ios, '9.0'
-  s.social_media_url   = "https://www.instagram.com/bawnnnnn/"
   s.requires_arc     = true
   s.source_files     = 'Aquaman/Aquaman/*.swift'
   s.public_header_files = ["Aquaman/Aquaman/Aquaman.h"]
