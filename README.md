@@ -38,7 +38,7 @@ Basically, we just need to provide the list of child view controllers to show. T
 
 Let's see the steps to do this:
 
-##### Create a AquamanPageViewController subclass
+#### Create a AquamanPageViewController subclass
 
 ```swift
 import Aquaman
@@ -48,7 +48,7 @@ class PageViewController: AquamanPageViewController {
 }
 ```
 
-##### Provide the view controllers that will appear embedded into the AquamanPageViewController
+#### Provide the view controllers that will appear embedded into the AquamanPageViewController
 
 ```swift
 override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
@@ -88,7 +88,7 @@ extension ChildViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 
-##### Provide the headerView and headerView height 
+#### Provide the headerView and headerView height 
 
 ```swift
 override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -100,7 +100,7 @@ override func headerViewHeightFor(_ pageController: AquamanPageViewController) -
 }
 ```
 
-##### Provide the menuView and menuView height
+#### Provide the menuView and menuView height
 
 ```swift
 override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -112,7 +112,7 @@ override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> 
 }
 ```
 
-##### Update menuView's layout when content scroll view did scroll and check state when did end scoll
+#### Update menuView's layout when content scroll view did scroll and check state when did end scoll
 
 ```swift
 override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
