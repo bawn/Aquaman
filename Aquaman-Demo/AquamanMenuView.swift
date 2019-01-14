@@ -27,8 +27,11 @@ import UIKit
 import SnapKit
 
 enum AMMenuStyle {
+    case textFont(UIFont)
+    case normalTextColor(UIColor)
+    case selectedTextColor(UIColor)
     case progressColor(UIColor)
-    case progressWidth(CGFloat)
+    case progressHeight(CGFloat)
 }
 
 protocol AquamanMenuViewDelegate: class {
@@ -55,9 +58,34 @@ class AquamanMenuView: UIView {
     private var menuItemViews = [AquamanMenuItemView]()
     weak var delegate: AquamanMenuViewDelegate?
     
+    var textFont = UIFont.systemFont(ofSize: 15.0)
+    var normalTextColor = UIColor.darkGray
+    var selectedTextColor = UIColor.red
+    var progressColor = UIColor.red
+    var progressHeight: CGFloat = 2.0
+    
+    init(parts: AMMenuStyle...) {
+        super.init(frame: .zero)
+        for part in parts {
+            switch part {
+            case .textFont(let font):
+                textFont = font
+            case .normalTextColor(let color):
+                normalTextColor = color
+            case .selectedTextColor(let color):
+                selectedTextColor = color
+            case .progressColor(let color):
+                progressColor = color
+            case .progressHeight(let height):
+                progressHeight = height
+            }
+        }
+        initialize()
+    }
+    
+    
     private var scrollRate: CGFloat = 0.0 {
         didSet {
-//            print(scrollRate)
             currentLabel?.rate = 1.0 - scrollRate
             nextLabel?.rate = scrollRate
         }
@@ -71,7 +99,7 @@ class AquamanMenuView: UIView {
                 return
             }
             titles.forEach { (item) in
-                let label = AquamanMenuItemView()
+                let label = AquamanMenuItemView(textFont, normalTextColor, selectedTextColor)
                 label.text = item
                 label.isUserInteractionEnabled = true
                 let tap = UITapGestureRecognizer(target: self, action: #selector(titleTapAction(_:)))
@@ -96,7 +124,7 @@ class AquamanMenuView: UIView {
         }
     }
     
-    var itemSpace: CGFloat {
+    private var itemSpace: CGFloat {
         guard let currentLabel = currentLabel
             , let nextLabel = nextLabel else {
                 return 0.0
@@ -106,7 +134,7 @@ class AquamanMenuView: UIView {
         return value
     }
     
-    var widthDifference: CGFloat {
+    private var widthDifference: CGFloat {
         guard let currentLabel = currentLabel
             , let nextLabel = nextLabel else {
                 return 0.0
@@ -116,7 +144,7 @@ class AquamanMenuView: UIView {
         return value
     }
     
-    var nextIndex = Int.max {
+    private var nextIndex = Int.max {
         didSet {
             guard nextIndex < titles.count
                 , nextIndex >= 0
@@ -127,7 +155,7 @@ class AquamanMenuView: UIView {
         }
     }
     
-    var currentIndex = Int.max {
+    private var currentIndex = Int.max {
         didSet {
             guard currentIndex < titles.count
                 , currentIndex >= 0
@@ -138,8 +166,8 @@ class AquamanMenuView: UIView {
             currentLabel = menuItemViews[currentIndex]
         }
     }
-    var currentLabel: AquamanMenuItemView?
-    var nextLabel: AquamanMenuItemView?
+    private var currentLabel: AquamanMenuItemView?
+    private var nextLabel: AquamanMenuItemView?
     
     
     override init(frame: CGRect) {
@@ -167,12 +195,12 @@ class AquamanMenuView: UIView {
             make.height.equalToSuperview()
         }
         
-        progressView.backgroundColor = UIColor.red
+        progressView.backgroundColor = progressColor
         progressView.layer.cornerRadius = 1.0
         scrollView.addSubview(progressView)
         progressView.snp.makeConstraints { (make) in
             make.width.equalTo(0.0)
-            make.height.equalTo(2.0)
+            make.height.equalTo(progressHeight)
             make.centerX.equalTo(scrollView.snp.leading).offset(0)
             make.bottom.equalToSuperview()
         }
@@ -183,7 +211,7 @@ class AquamanMenuView: UIView {
         menuItemViews.removeAll()
     }
     
-    @objc func titleTapAction(_ sender: UIGestureRecognizer) {
+    @objc private func titleTapAction(_ sender: UIGestureRecognizer) {
         guard let targetView = sender.view
             , let index = stackView.arrangedSubviews.firstIndex(of: targetView) else {
             return
@@ -217,8 +245,8 @@ class AquamanMenuView: UIView {
             , let currentLabel = currentLabel else {
             return
         }
-        menuItemViews.forEach({$0.textColor = UIColor.gray})
-        menuItemViews[currentIndex].textColor = UIColor.red
+        menuItemViews.forEach({$0.textColor = normalTextColor})
+        menuItemViews[currentIndex].textColor = selectedTextColor
         scrollView.scrollToSuitable(currentLabel)
     }
 }

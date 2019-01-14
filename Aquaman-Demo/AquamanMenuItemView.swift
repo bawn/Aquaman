@@ -26,13 +26,8 @@
 import UIKit
 
 class AquamanMenuItemView: UILabel {
-    var normalTextColor = UIColor.gray
-    var selectedTextColor = UIColor.red
-    var normalTextFont = UIFont.systemFont(ofSize: 15.0)
-    var selectedTextFont = UIFont.systemFont(ofSize: 15.0)
-    
-    lazy var normalColors = normalTextColor.rgb
-    lazy var selectedColors = selectedTextColor.rgb
+    var normalColors = UIColor.white.rgb
+    var selectedColors = UIColor.white.rgb
     
     var rate: CGFloat = 0.0 {
         didSet {
@@ -47,10 +42,12 @@ class AquamanMenuItemView: UILabel {
             textColor = UIColor(red: r, green: g, blue: b, alpha: a)
         }
     }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        font = normalTextFont
+    
+    init(_ textFont: UIFont, _ normalTextColor: UIColor, _ selectedTextColor: UIColor) {
+        super.init(frame: .zero)
+        self.font = textFont
+        normalColors = normalTextColor.rgb
+        selectedColors = selectedTextColor.rgb
     }
     
     required init?(coder aDecoder: NSCoder) {

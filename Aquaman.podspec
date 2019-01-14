@@ -10,5 +10,4 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '9.0'
   s.requires_arc     = true
   s.source_files     = 'Aquaman/Aquaman/*.swift'
-  s.public_header_files = ["Aquaman/Aquaman/Aquaman.h"]
 end

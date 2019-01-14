@@ -30,7 +30,13 @@ import Aquaman
 class PageViewController: AquamanPageViewController {
 
     let navBar = UIView()
-    let menuView = AquamanMenuView()
+    let menuView = AquamanMenuView(parts:
+        .normalTextColor(UIColor.gray),
+        .selectedTextColor(UIColor.blue),
+        .textFont(UIFont.systemFont(ofSize: 15.0)),
+        .progressColor(UIColor.blue),
+        .progressHeight(2)
+    )
     var count = 3
     var headerViewHeight: CGFloat = 200.0
     var menuViewHeight: CGFloat = 44.0
