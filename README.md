@@ -8,6 +8,8 @@
 
 A pure-Swift library for nested display of horizontal and vertical scrolling views.
 
+![demo](./demo.gif)
+
 ## Requirements
 
 - iOS 9.0+ 
@@ -128,7 +130,9 @@ override func pageController(_ pageController: AquamanPageViewController,
 
 
 
+## Examples
 
+Follow these 4 steps to run Example project: Clone Aquaman repository, run the `pod install` command ,open Aquaman workspace and run the Aquaman-Demo project.
 
 ### License
 
