@@ -22,7 +22,6 @@ A pure-Swift library for nested display of horizontal and vertical scrolling vie
 ```
 use_frameworks!
 
-# Latest release in CocoaPods
 pod 'Aquaman'
 ```
 
