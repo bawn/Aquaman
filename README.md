@@ -66,6 +66,7 @@ Every UIViewController that will appear within the AquamanPageViewController sho
 
 
 ```swift
+import Aquaman
 class ChildViewController: UIViewController, AquamanChildViewController {
 
     @IBOutlet weak var tableView: UITableView!
