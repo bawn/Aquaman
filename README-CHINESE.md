@@ -30,19 +30,15 @@ pod 'Aquaman'
 
 ## Usage
 
-[中文文档](https://github.com/bawn/Aquaman/README-CHINESE.md)
-
-First make sure to import the framework:
+首先需要导入 Aquaman
 
 ```
 import Aquaman
 ```
 
-Basically, we just need to provide the list of child view controllers to show. Then call some necessary methods.
 
-Let's see the steps to do this:
 
-#### Create a AquamanPageViewController subclass
+#### 创建 AquamanPageViewController 子类
 
 ```swift
 import Aquaman
@@ -52,7 +48,7 @@ class PageViewController: AquamanPageViewController {
 }
 ```
 
-#### Provide the view controllers that will appear embedded into the AquamanPageViewController
+#### 重写协议方法以提供 viewController 和相应的数量
 
 ```swift
 override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
@@ -66,9 +62,7 @@ override func pageController(_ pageController: AquamanPageViewController, viewCo
     
 ```
 
-Every UIViewController that will appear within the AquamanPageViewController should conform to `AquamanChildViewController` by implementing `func aquamanChildScrollView() -> UIScrollView` and call `func childScrollViewDidScroll(_ scrollView: UIScrollView)` in `func scrollViewDidScroll(_ scrollView: UIScrollView)`
-
-
+注意：所提供的 viewController 必须都遵守 `AquamanChildViewController` 协议，并实现 `func aquamanChildScrollView() -> UIScrollView` 方法
 
 ```swift
 import Aquaman
@@ -82,6 +76,8 @@ class ChildViewController: UIViewController, AquamanChildViewController {
 }
 ```
 
+而且还需要在 `func scrollViewDidScroll(_ scrollView: UIScrollView)` 方法中调用 `amPageViewContoller?.childScrollViewDidScroll(scrollView)`
+
 ```swift
 extension ChildViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -93,7 +89,7 @@ extension ChildViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 
-#### Provide the headerView and headerView height 
+#### 重写协议方法以提供 headerView 及其高度
 
 ```swift
 override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -105,7 +101,7 @@ override func headerViewHeightFor(_ pageController: AquamanPageViewController) -
 }
 ```
 
-#### Provide the menuView and menuView height
+#### 重写协议方法以提供 menuView 及其高度
 
 ```swift
 override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -117,7 +113,9 @@ override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> 
 }
 ```
 
-#### Update menuView's layout when content scroll view did scroll and check state when did end scoll
+考虑到有时候 menuView 需要高度的定制性，所以设计成由开发者自行提供（demo 中有 menuView 的实现方法）。
+
+#### 更新 menuView 的布局
 
 ```swift
 override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
@@ -130,7 +128,7 @@ override func pageController(_ pageController: AquamanPageViewController,
 }
 ```
 
-
+包括在内容的滚动的时候和停止滚动的时候，具体可参考 demo
 
 ## Examples
 
