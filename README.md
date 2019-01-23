@@ -30,7 +30,7 @@ pod 'Aquaman'
 
 ## Usage
 
-[中文文档](https://github.com/bawn/Aquaman/README-CHINESE.md)
+[中文文档](https://github.com/bawn/Aquaman/blob/master/README-CHINESE.md)
 
 First make sure to import the framework:
 
