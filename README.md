@@ -66,9 +66,7 @@ override func pageController(_ pageController: AquamanPageViewController, viewCo
     
 ```
 
-Every UIViewController that will appear within the AquamanPageViewController should conform to `AquamanChildViewController` by implementing `func aquamanChildScrollView() -> UIScrollView` and call `func childScrollViewDidScroll(_ scrollView: UIScrollView)` in `func scrollViewDidScroll(_ scrollView: UIScrollView)`
-
-
+Every UIViewController that will appear within the AquamanPageViewController should conform to `AquamanChildViewController` by implementing `func aquamanChildScrollView() -> UIScrollView` 
 
 ```swift
 import Aquaman
@@ -79,15 +77,6 @@ class ChildViewController: UIViewController, AquamanChildViewController {
         return tableView
     }
     // ...
-}
-```
-
-```swift
-extension ChildViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        amPageViewContoller?.childScrollViewDidScroll(scrollView)
-    }
 }
 ```
 
