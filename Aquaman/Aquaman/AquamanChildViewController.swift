@@ -30,6 +30,4 @@ public protocol AquamanChildViewController {
     func aquamanChildScrollView() -> UIScrollView
 }
 
-extension AquamanChildViewController where Self: UIViewController {
-    
-}
+extension AquamanChildViewController where Self: UIViewController {}

@@ -41,10 +41,9 @@ class SupermanViewController: UIViewController, AquamanChildViewController {
 }
 
 
-
 extension SupermanViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,9 +55,4 @@ extension SupermanViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         navigationController?.popViewController(animated: true)
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        amPageViewContoller?.childScrollViewDidScroll(scrollView)
-    }
-    
 }

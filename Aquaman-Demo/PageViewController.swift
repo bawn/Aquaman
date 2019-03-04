@@ -76,7 +76,7 @@ class PageViewController: AquamanPageViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.menuView.titles = ["Superman", "Batman", "Wonder Woman", "The Flash", "Aquaman"]
             self.count = self.menuView.titles.count
-            self.headerViewHeight = 220.0
+            self.headerViewHeight = 120.0
             self.menuViewHeight = 50.0
             self.reloadData()
             self.setSelect(index: 2, animation: false)
@@ -116,7 +116,6 @@ class PageViewController: AquamanPageViewController {
             let viewController = storyboard.instantiateViewController(withIdentifier: "WonderWomanViewController") as! WonderWomanViewController
             return viewController
         }
-        
     }
     
     
@@ -170,6 +169,5 @@ extension PageViewController: AquamanMenuViewDelegate {
             return
         }
         setSelect(index: index, animation: true)
-        
     }
 }

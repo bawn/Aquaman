@@ -72,9 +72,4 @@ extension BatmanViewController: UICollectionViewDataSource, UICollectionViewDele
         let width = floor((collectionView.bounds.width - 12.0 * 3.0) * 0.5)
         return CGSize(width: width, height: width)
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        amPageViewContoller?.childScrollViewDidScroll(scrollView)
-    }
-    
 }

@@ -40,6 +40,4 @@ extension NSCache where KeyType == NSString, ObjectType == UIViewController {
             setObject(newValue, forKey: "\(index)" as NSString)
         }
     }
-    
-
 }
