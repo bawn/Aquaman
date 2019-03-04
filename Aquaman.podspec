@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "Aquaman"
   s.version          = "0.0.2"
-  s.summary          = "基于AFNetworking的网络库封装"
+  s.summary          = "An easy solution to nested scrolling"
   s.homepage         = "https://github.com/bawn/Aquaman"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.authors          = { "bawn" => "lc5491137@gmail.com" }
