@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Aquaman"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "基于AFNetworking的网络库封装"
   s.homepage         = "https://github.com/bawn/Aquaman"
   s.license          = { :type => "MIT", :file => "LICENSE" }
