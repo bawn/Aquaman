@@ -76,17 +76,6 @@ class ChildViewController: UIViewController, AquamanChildViewController {
 }
 ```
 
-而且还需要在 `func scrollViewDidScroll(_ scrollView: UIScrollView)` 方法中调用 `amPageViewContoller?.childScrollViewDidScroll(scrollView)`
-
-```swift
-extension ChildViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        amPageViewContoller?.childScrollViewDidScroll(scrollView)
-    }
-}
-```
-
 
 
 #### 重写协议方法以提供 headerView 及其高度
