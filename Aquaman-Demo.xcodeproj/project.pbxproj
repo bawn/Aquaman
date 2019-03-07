@@ -101,15 +101,15 @@
 			isa = PBXGroup;
 			children = (
 				DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */,
+				DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */,
+				DF7F9F3821E37FA9000F4317 /* SupermanViewController.swift */,
+				DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */,
 				DF7F9F3221E37FA9000F4317 /* HeaderView.swift */,
 				DFD4116021E84011006E8D77 /* ViewController.swift */,
 				DF7F9F3921E37FA9000F4317 /* PageViewController.swift */,
 				DF7F9F3A21E37FA9000F4317 /* UIScrollView.swift */,
 				DF7F9F3421E37FA9000F4317 /* AquamanMenuItemView.swift */,
 				DF7F9F3C21E37FA9000F4317 /* AquamanMenuView.swift */,
-				DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */,
-				DF7F9F3821E37FA9000F4317 /* SupermanViewController.swift */,
-				DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */,
 				DF7F9F3521E37FA9000F4317 /* UIColor+RGB.swift */,
 				DF7F9F4A21E37FBB000F4317 /* Main.storyboard */,
 				DF7F9F2721E37EEC000F4317 /* Assets.xcassets */,
