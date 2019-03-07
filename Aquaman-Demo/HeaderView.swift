@@ -25,7 +25,6 @@
 
 import UIKit
 
-
 class HeaderView: UIView {
 
     override init(frame: CGRect) {
