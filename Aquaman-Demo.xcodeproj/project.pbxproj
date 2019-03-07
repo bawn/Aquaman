@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */; };
+		DF786CD92230CB8800DD6955 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; };
 		DF7F9F2121E37EEB000F4317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */; };
 		DF7F9F2821E37EEC000F4317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2721E37EEC000F4317 /* Assets.xcassets */; };
 		DF7F9F2B21E37EEC000F4317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2921E37EEC000F4317 /* LaunchScreen.storyboard */; };
@@ -28,6 +29,7 @@
 		080B132EBC36A59AA8F898D2 /* Pods-Aquaman-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aquaman_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D47E5FC985AA570B5A6E5B /* Pods-Aquaman-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		DF786CD82230CB8800DD6955 /* Aquaman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aquaman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7F9F1D21E37EEB000F4317 /* Aquaman-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aquaman-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF7F9F2721E37EEC000F4317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF786CD92230CB8800DD6955 /* Aquaman.framework in Frameworks */,
 				65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +73,7 @@
 		7E74EA9976E9E47CAA6BDD04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF786CD82230CB8800DD6955 /* Aquaman.framework */,
 				B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */,
 			);
 			name = Frameworks;
