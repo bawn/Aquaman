@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Aquaman"
-  s.version          = "0.0.2"
+  s.version          = "0.0.3"
   s.summary          = "An easy solution to nested scrolling"
   s.homepage         = "https://github.com/bawn/Aquaman"
   s.license          = { :type => "MIT", :file => "LICENSE" }
@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/bawn/Aquaman.git", :tag => s.version.to_s }
   s.platform         = :ios, '9.0'
   s.requires_arc     = true
+  s.public_header_files = ["Aquaman/Aquaman.h"]
   s.source_files     = 'Aquaman/Aquaman/*.swift'
 end
