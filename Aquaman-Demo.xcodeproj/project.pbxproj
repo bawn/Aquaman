@@ -22,7 +22,6 @@
 		DF7F9F4721E37FAA000F4317 /* WonderWomanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */; };
 		DF7F9F4821E37FAA000F4317 /* AquamanMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3C21E37FA9000F4317 /* AquamanMenuView.swift */; };
 		DF7F9F4B21E37FBB000F4317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F4A21E37FBB000F4317 /* Main.storyboard */; };
-		DFD381AF2230ED7D0007A9B2 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD381AE2230ED7D0007A9B2 /* Aquaman.framework */; };
 		DFD4116121E84011006E8D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4116021E84011006E8D77 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 		DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WonderWomanViewController.swift; sourceTree = "<group>"; };
 		DF7F9F3C21E37FA9000F4317 /* AquamanMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AquamanMenuView.swift; sourceTree = "<group>"; };
 		DF7F9F4A21E37FBB000F4317 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		DFD381AE2230ED7D0007A9B2 /* Aquaman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aquaman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD4116021E84011006E8D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +54,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF786CD92230CB8800DD6955 /* Aquaman.framework in Frameworks */,
-
 				65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,24 +194,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS/RevealServer.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF7D11ABDF6D8278A8DD9F63 /* [CP] Check Pods Manifest.lock */ = {

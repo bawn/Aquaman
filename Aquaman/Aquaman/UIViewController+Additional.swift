@@ -33,8 +33,8 @@ extension UIViewController {
     }
     
     func clearFromParent() {
-        view.removeFromSuperview()
         willMove(toParent: nil)
+        view.removeFromSuperview()
         removeFromParent()
     }
 }

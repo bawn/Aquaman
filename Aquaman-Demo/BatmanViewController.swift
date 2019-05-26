@@ -32,7 +32,7 @@ class BatmanViewController: UIViewController, AquamanChildViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        collectionView.alwaysBounceVertical = true
     }
     
     func aquamanChildScrollView() -> UIScrollView {
@@ -44,7 +44,7 @@ class BatmanViewController: UIViewController, AquamanChildViewController {
 extension BatmanViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
