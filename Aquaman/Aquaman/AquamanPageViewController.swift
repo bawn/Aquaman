@@ -199,6 +199,10 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         mainScrollView.isScrollEnabled = false
     }
     
+    deinit {
+        childScrollViewObservation?.invalidate()
+    }
+    
     private func didDisplayViewController(at index: Int) {
         guard childControllerCount > 0
             , index >= 0
@@ -318,10 +322,10 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         contentScrollView.setContentOffset(.zero, animated: false)
         
         contentStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        containViews.removeAll()
         memoryCache.removeAllObjects()
         
         containViews.forEach({$0.viewController?.clearFromParent()})
+        containViews.removeAll()
     }
     
     func setupDataSource() {

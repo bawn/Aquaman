@@ -68,8 +68,6 @@ class PageViewController: AquamanPageViewController {
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(updateData))
         mainScrollView.mj_header = header
         menuView.delegate = self
-        
-        
     }
     
     @objc func updateData() {
