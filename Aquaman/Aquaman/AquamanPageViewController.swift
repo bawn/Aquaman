@@ -146,6 +146,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private let headerContentView = UIView()
     private let menuContentView = UIView()
     private var menuViewHeight: CGFloat = 0.0
+    private var menuViewConstraint: NSLayoutConstraint?
     private var menuViewPinHeight: CGFloat = 0.0
     private var sillValue: CGFloat = 0.0
     private var childControllerCount = 0
@@ -154,7 +155,6 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private var countArray = [Int]()
     private var containViews = [AquamanContainView]()
     private var currentChildScrollView: UIScrollView?
-    private var childScrollViews = [UIScrollView]()
     private var childScrollViewObservation: NSKeyValueObservation?
     
     private let memoryCache = NSCache<NSString, UIViewController>()
@@ -267,12 +267,14 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         mainScrollView.addSubview(menuContentView)
         menuContentView.translatesAutoresizingMaskIntoConstraints = false
         
+        let menuContentViewHeight = menuContentView.heightAnchor.constraint(equalToConstant: menuViewHeight)
+        menuViewConstraint = menuContentViewHeight
         NSLayoutConstraint.activate([
             menuContentView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
             menuContentView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
             menuContentView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
-            menuContentView.heightAnchor.constraint(equalToConstant: menuViewHeight),
-            menuContentView.topAnchor.constraint(equalTo: headerContentView.bottomAnchor)
+            menuContentView.topAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+            menuContentViewHeight
         ])
         
         
@@ -305,10 +307,13 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         mainScrollView.headerViewHeight = headerViewHeight
         mainScrollView.menuViewHeight = menuViewHeight
         headerViewConstraint?.constant = headerViewHeight
+        menuViewConstraint?.constant = menuViewHeight
         contentScrollViewConstraint?.constant = -menuViewHeight - menuViewPinHeight
     }
     
     private func clear() {
+        childScrollViewObservation?.invalidate()
+        
         originIndex = 0
         
         mainScrollView.am_isCanScroll = true

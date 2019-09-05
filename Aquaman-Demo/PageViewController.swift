@@ -75,7 +75,7 @@ class PageViewController: AquamanPageViewController {
             self.menuView.titles = ["Superman", "Batman", "Wonder Woman", "The Flash", "Aquaman"]
             self.count = self.menuView.titles.count
             self.headerViewHeight = 120.0
-            self.menuViewHeight = 50.0
+            self.menuViewHeight = 60.0
             self.reloadData()
             self.setSelect(index: 2, animation: false)
             if self.mainScrollView.mj_header.isRefreshing {
