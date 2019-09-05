@@ -48,7 +48,7 @@ class PageViewController: AquamanPageViewController {
 }
 ```
 
-#### 重写协议方法以提供 viewController 和相应的数量
+#### 重写协议方法提供 viewController 和相应的数量
 
 ```swift
 override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
@@ -78,7 +78,7 @@ class ChildViewController: UIViewController, AquamanChildViewController {
 
 
 
-#### 重写协议方法以提供 headerView 及其高度
+#### 重写协议方法提供 headerView 及其高度
 
 ```swift
 override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -90,7 +90,7 @@ override func headerViewHeightFor(_ pageController: AquamanPageViewController) -
 }
 ```
 
-#### 重写协议方法以提供 menuView 及其高度
+#### 重写协议方法提供 menuView 及其高度
 
 ```swift
 override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -102,7 +102,7 @@ override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> 
 }
 ```
 
-考虑到有时候 menuView 需要高度的定制性，所以设计成由开发者自行提供（demo 中有 menuView 的实现方法）。
+menuView 需要开发者自己实现（原因在于 menuView  有时候有高度定制性，demo 中有 menuView 的实现方法）
 
 #### 更新 menuView 的布局
 

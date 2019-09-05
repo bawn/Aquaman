@@ -72,4 +72,8 @@ extension BatmanViewController: UICollectionViewDataSource, UICollectionViewDele
         let width = floor((collectionView.bounds.width - 12.0 * 3.0) * 0.5)
         return CGSize(width: width, height: width)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigationController?.popViewController(animated: true)
+    }
 }

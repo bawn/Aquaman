@@ -25,11 +25,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,15 +36,13 @@ class ViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-
-    @IBAction func buttonAction(_ sender: UIButton) {
-        navigationController?.pushViewController(PageViewController(), animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let pageViewController = segue.destination as? PageViewController
+            , let cell = sender as? UITableViewCell
+            , let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        pageViewController.indexPath = indexPath
     }
-}
 
-extension ViewController: UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        let isRootVC = (viewController == navigationController.viewControllers.first)
-        navigationController.interactivePopGestureRecognizer?.isEnabled = !isRootVC
-    }
 }

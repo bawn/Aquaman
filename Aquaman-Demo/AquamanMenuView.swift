@@ -120,7 +120,7 @@ class AquamanMenuView: UIView {
                 make.width.equalTo(labelWidth)
                 make.centerX.equalTo(scrollView.snp.leading).offset(offset)
             }
-            checkState()
+            checkState(animation: false)
         }
     }
     
@@ -239,7 +239,7 @@ class AquamanMenuView: UIView {
         }
     }
     
-    func checkState() {
+    func checkState(animation: Bool) {
         guard currentIndex >= 0
             , currentIndex < titles.count
             , let currentLabel = currentLabel else {
@@ -247,7 +247,7 @@ class AquamanMenuView: UIView {
         }
         menuItemViews.forEach({$0.textColor = normalTextColor})
         menuItemViews[currentIndex].textColor = selectedTextColor
-        scrollView.scrollToSuitable(currentLabel)
+        scrollView.scrollToSuitablePosition(currentLabel, animation)
     }
 }
 

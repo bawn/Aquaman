@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */; };
 		DF786CD92230CB8800DD6955 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; };
+		DF7AC0272320BB9E002E595E /* TheFlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */; };
 		DF7F9F2121E37EEB000F4317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */; };
 		DF7F9F2821E37EEC000F4317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2721E37EEC000F4317 /* Assets.xcassets */; };
 		DF7F9F2B21E37EEC000F4317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2921E37EEC000F4317 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 		B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aquaman_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D47E5FC985AA570B5A6E5B /* Pods-Aquaman-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		DF786CD82230CB8800DD6955 /* Aquaman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aquaman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFlashViewController.swift; sourceTree = "<group>"; };
 		DF7F9F1D21E37EEB000F4317 /* Aquaman-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aquaman-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF7F9F2721E37EEC000F4317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */,
 				DF7F9F3821E37FA9000F4317 /* SupermanViewController.swift */,
 				DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */,
+				DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */,
 				DF7F9F3221E37FA9000F4317 /* HeaderView.swift */,
 				DFD4116021E84011006E8D77 /* ViewController.swift */,
 				DF7F9F3921E37FA9000F4317 /* PageViewController.swift */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF7F9F4521E37FAA000F4317 /* PageViewController.swift in Sources */,
+				DF7AC0272320BB9E002E595E /* TheFlashViewController.swift in Sources */,
 				DF7F9F4721E37FAA000F4317 /* WonderWomanViewController.swift in Sources */,
 				DF7F9F4121E37FAA000F4317 /* UIColor+RGB.swift in Sources */,
 				DF7F9F3E21E37FAA000F4317 /* HeaderView.swift in Sources */,

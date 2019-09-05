@@ -27,11 +27,11 @@ import Foundation
 import UIKit
 
 extension UIScrollView {
-    func scrollToSuitable(_ targetView: UIView) {
+    func scrollToSuitablePosition(_ targetView: UIView, _ animation: Bool) {
         guard contentSize.width > bounds.width else {
             return
         }
         let x = min(max(targetView.center.x - frame.midX, 0.0), contentSize.width - bounds.width)
-        setContentOffset(CGPoint(x: x, y: 0), animated: true)
+        setContentOffset(CGPoint(x: x, y: 0), animated: animation)
     }
 }
