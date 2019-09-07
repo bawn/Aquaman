@@ -208,6 +208,31 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         childScrollViewObservation?.invalidate()
     }
     
+    public func setSelect(index: Int, animation: Bool) {
+        let offset = CGPoint(x: contentScrollView.bounds.width * CGFloat(index),
+                             y: contentScrollView.contentOffset.y)
+        contentScrollView.setContentOffset(offset, animated: animation)
+        if animation == false {
+            contentScrollViewDidEndScroll(contentScrollView)
+        }
+    }
+    
+    public func reloadData() {
+        mainScrollView.isUserInteractionEnabled = false
+        clear()
+        obtainDataSource()
+        updateOriginContent()
+        setupDataSource()
+        view.layoutIfNeeded()
+        if originIndex > 0 {
+            setSelect(index: originIndex, animation: false)
+        } else {
+            showChildViewContoller(at: originIndex)
+            didDisplayViewController(at: originIndex)
+        }
+        mainScrollView.isUserInteractionEnabled = true
+    }
+    
     private func didDisplayViewController(at index: Int) {
         guard childControllerCount > 0
             , index >= 0
@@ -306,6 +331,8 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             contentStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
             contentStackView.heightAnchor.constraint(equalTo: contentScrollView.heightAnchor)
         ])
+        
+        mainScrollView.bringSubviewToFront(menuContentView)
     }
     
     private func updateOriginContent() {
@@ -336,9 +363,11 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         
         containViews.forEach({$0.viewController?.clearFromParent()})
         containViews.removeAll()
+        
+        countArray.removeAll()
     }
     
-    func setupDataSource() {
+    private func setupDataSource() {
         memoryCache.countLimit = childControllerCount
         
         if let headerView = headerView {
@@ -374,7 +403,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         }
     }
     
-    func showChildViewContoller(at index: Int) {
+    private func showChildViewContoller(at index: Int) {
         guard childControllerCount > 0
             , index >= 0
             , index < childControllerCount
@@ -409,8 +438,9 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         containView.viewController = targetViewController
         
         let scrollView = targetViewController.aquamanChildScrollView()
+        scrollView.am_originOffset = scrollView.contentOffset
         if mainScrollView.contentOffset.y < sillValue {
-            scrollView.setContentOffset(.zero, animated: false)
+            scrollView.contentOffset = scrollView.am_originOffset
             scrollView.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }
@@ -426,7 +456,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     }
     
     
-    func removeChildViewController(at index: Int) {
+    private func removeChildViewController(at index: Int) {
         guard childControllerCount > 0
             , index >= 0
             , index < childControllerCount
@@ -447,7 +477,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         }
     }
     
-    func layoutChildViewControlls() {
+    private func layoutChildViewControlls() {
         countArray.forEach { (index) in
             let containView = containViews[index]
             let isDisplaying = containView.displayingIn(view: view, containView: contentScrollView)
@@ -455,14 +485,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         }
     }
     
-    public func setSelect(index: Int, animation: Bool) {
-        let offset = CGPoint(x: contentScrollView.bounds.width * CGFloat(index),
-                             y: contentScrollView.contentOffset.y)
-        contentScrollView.setContentOffset(offset, animated: animation)
-        if animation == false {
-            contentScrollViewDidEndScroll(contentScrollView)
-        }
-    }
+    
     
     private func contentScrollViewDidEndScroll(_ scrollView: UIScrollView) {
         let scrollViewWidth = scrollView.bounds.width
@@ -476,22 +499,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         pageController(self, contentScrollViewDidEndScroll: contentScrollView)
     }
     
-    public func reloadData() {
-        mainScrollView.isUserInteractionEnabled = false
-        clear()
-        obtainDataSource()
-        updateOriginContent()
-        setupDataSource()
-        view.layoutIfNeeded()
-        if originIndex > 0 {
-            setSelect(index: originIndex, animation: false)
-        } else {
-            showChildViewContoller(at: originIndex)
-            didDisplayViewController(at: originIndex)
-        }
-        mainScrollView.isUserInteractionEnabled = true
-        
-    }
+    
     
     open func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
         assertionFailure("Sub-class must implement the AMPageControllerDataSource method")
@@ -622,7 +630,7 @@ extension AquamanPageViewController: UIScrollViewDelegate {
         guard scrollView == mainScrollView else {
             return false
         }
-        currentChildScrollView?.setContentOffset(.zero, animated: true)
+        currentChildScrollView?.setContentOffset(currentChildScrollView?.am_originOffset ?? .zero, animated: true)
         return true
     }
     
@@ -632,11 +640,11 @@ extension AquamanPageViewController {
     private func childScrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView.am_isCanScroll == false {
-            scrollView.contentOffset = .zero
+            scrollView.contentOffset = scrollView.am_originOffset
         }
         let offsetY = scrollView.contentOffset.y
-        if offsetY <= 0 {
-            scrollView.contentOffset = .zero
+        if offsetY <= scrollView.am_originOffset.y {
+            scrollView.contentOffset = scrollView.am_originOffset
             scrollView.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }
