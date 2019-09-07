@@ -41,9 +41,10 @@ class PageViewController: AquamanPageViewController {
         view.delegate = self
         return view
     }()
+    private let headerView = HeaderView()
     private lazy var count = indexPath.row == 0 ? 3 : 0
     private var headerViewHeight: CGFloat = 200.0
-    private var menuViewHeight: CGFloat = 44.0
+    private var menuViewHeight: CGFloat = 54.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,8 @@ class PageViewController: AquamanPageViewController {
                 automaticallyAdjustsScrollViewInsets = false
             }
         case 1:
+            headerView.isHidden = true
+            menuView.isHidden = true
             mainScrollView.mj_header.beginRefreshing()
         default:
             break
@@ -66,10 +69,12 @@ class PageViewController: AquamanPageViewController {
     
     @objc func updateData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.headerView.isHidden = false
+            self.menuView.isHidden = false
             self.menuView.titles = ["Superman", "Batman", "Wonder Woman", "The Flash"]
             self.count = self.menuView.titles.count
             self.headerViewHeight = 120.0
-            self.menuViewHeight = 60.0
+            self.menuViewHeight = 54.0
             self.reloadData()
             if self.mainScrollView.mj_header.isRefreshing {
                 self.mainScrollView.mj_header.endRefreshing()
@@ -89,7 +94,7 @@ class PageViewController: AquamanPageViewController {
 
     
     override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
-        return HeaderView()
+        return headerView
     }
     
     override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {

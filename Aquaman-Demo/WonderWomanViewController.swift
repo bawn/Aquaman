@@ -31,7 +31,7 @@ class WonderWomanViewController: UIViewController, AquamanChildViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
     }
     
     func aquamanChildScrollView() -> UIScrollView {
