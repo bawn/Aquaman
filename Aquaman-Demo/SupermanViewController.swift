@@ -27,7 +27,6 @@ import UIKit
 import Aquaman
 
 class SupermanViewController: UIViewController, AquamanChildViewController {
-
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

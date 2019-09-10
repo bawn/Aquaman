@@ -14,14 +14,14 @@
 		DF7F9F2821E37EEC000F4317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2721E37EEC000F4317 /* Assets.xcassets */; };
 		DF7F9F2B21E37EEC000F4317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2921E37EEC000F4317 /* LaunchScreen.storyboard */; };
 		DF7F9F3E21E37FAA000F4317 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3221E37FA9000F4317 /* HeaderView.swift */; };
-		DF7F9F4021E37FAA000F4317 /* AquamanMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3421E37FA9000F4317 /* AquamanMenuItemView.swift */; };
+		DF7F9F4021E37FAA000F4317 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3421E37FA9000F4317 /* MenuItemView.swift */; };
 		DF7F9F4121E37FAA000F4317 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3521E37FA9000F4317 /* UIColor+RGB.swift */; };
 		DF7F9F4321E37FAA000F4317 /* BatmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */; };
 		DF7F9F4421E37FAA000F4317 /* SupermanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3821E37FA9000F4317 /* SupermanViewController.swift */; };
 		DF7F9F4521E37FAA000F4317 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3921E37FA9000F4317 /* PageViewController.swift */; };
 		DF7F9F4621E37FAA000F4317 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3A21E37FA9000F4317 /* UIScrollView.swift */; };
 		DF7F9F4721E37FAA000F4317 /* WonderWomanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */; };
-		DF7F9F4821E37FAA000F4317 /* AquamanMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3C21E37FA9000F4317 /* AquamanMenuView.swift */; };
+		DF7F9F4821E37FAA000F4317 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3C21E37FA9000F4317 /* MenuView.swift */; };
 		DF7F9F4B21E37FBB000F4317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F4A21E37FBB000F4317 /* Main.storyboard */; };
 		DFD4116121E84011006E8D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4116021E84011006E8D77 /* ViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,14 +38,14 @@
 		DF7F9F2A21E37EEC000F4317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF7F9F2C21E37EEC000F4317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF7F9F3221E37FA9000F4317 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		DF7F9F3421E37FA9000F4317 /* AquamanMenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AquamanMenuItemView.swift; sourceTree = "<group>"; };
+		DF7F9F3421E37FA9000F4317 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		DF7F9F3521E37FA9000F4317 /* UIColor+RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BatmanViewController.swift; sourceTree = "<group>"; };
 		DF7F9F3821E37FA9000F4317 /* SupermanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupermanViewController.swift; sourceTree = "<group>"; };
 		DF7F9F3921E37FA9000F4317 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		DF7F9F3A21E37FA9000F4317 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WonderWomanViewController.swift; sourceTree = "<group>"; };
-		DF7F9F3C21E37FA9000F4317 /* AquamanMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AquamanMenuView.swift; sourceTree = "<group>"; };
+		DF7F9F3C21E37FA9000F4317 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		DF7F9F4A21E37FBB000F4317 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DFD4116021E84011006E8D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +111,8 @@
 				DFD4116021E84011006E8D77 /* ViewController.swift */,
 				DF7F9F3921E37FA9000F4317 /* PageViewController.swift */,
 				DF7F9F3A21E37FA9000F4317 /* UIScrollView.swift */,
-				DF7F9F3421E37FA9000F4317 /* AquamanMenuItemView.swift */,
-				DF7F9F3C21E37FA9000F4317 /* AquamanMenuView.swift */,
+				DF7F9F3421E37FA9000F4317 /* MenuItemView.swift */,
+				DF7F9F3C21E37FA9000F4317 /* MenuView.swift */,
 				DF7F9F3521E37FA9000F4317 /* UIColor+RGB.swift */,
 				DF7F9F4A21E37FBB000F4317 /* Main.storyboard */,
 				DF7F9F2721E37EEC000F4317 /* Assets.xcassets */,
@@ -242,10 +242,10 @@
 				DF7F9F4721E37FAA000F4317 /* WonderWomanViewController.swift in Sources */,
 				DF7F9F4121E37FAA000F4317 /* UIColor+RGB.swift in Sources */,
 				DF7F9F3E21E37FAA000F4317 /* HeaderView.swift in Sources */,
-				DF7F9F4021E37FAA000F4317 /* AquamanMenuItemView.swift in Sources */,
+				DF7F9F4021E37FAA000F4317 /* MenuItemView.swift in Sources */,
 				DFD4116121E84011006E8D77 /* ViewController.swift in Sources */,
 				DF7F9F2121E37EEB000F4317 /* AppDelegate.swift in Sources */,
-				DF7F9F4821E37FAA000F4317 /* AquamanMenuView.swift in Sources */,
+				DF7F9F4821E37FAA000F4317 /* MenuView.swift in Sources */,
 				DF7F9F4321E37FAA000F4317 /* BatmanViewController.swift in Sources */,
 				DF7F9F4621E37FAA000F4317 /* UIScrollView.swift in Sources */,
 				DF7F9F4421E37FAA000F4317 /* SupermanViewController.swift in Sources */,

@@ -45,6 +45,5 @@ public class AquaMainScrollView: UIScrollView, UIGestureRecognizerDelegate {
         let currentPoint = gestureRecognizer.location(in: self)
         return targetRect.contains(currentPoint)
     }
-    
 }
 

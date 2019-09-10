@@ -30,8 +30,8 @@ import Aquaman
 class PageViewController: AquamanPageViewController {
 
     var indexPath = IndexPath(row: 0, section: 0)
-    private lazy var menuView: AquamanMenuView = {
-        let view = AquamanMenuView(parts:
+    private lazy var menuView: MenuView = {
+        let view = MenuView(parts:
             .normalTextColor(UIColor.gray),
             .selectedTextColor(UIColor.blue),
             .textFont(UIFont.systemFont(ofSize: 15.0)),
@@ -91,7 +91,6 @@ class PageViewController: AquamanPageViewController {
             break
         }
     }
-
     
     override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
         return headerView
@@ -173,8 +172,8 @@ class PageViewController: AquamanPageViewController {
 }
 
 
-extension PageViewController: AquamanMenuViewDelegate {
-    func aquamanMenuView(_ menuView: AquamanMenuView, didSelectedItemAt index: Int) {
+extension PageViewController: MenuViewDelegate {
+    func menuView(_ menuView: MenuView, didSelectedItemAt index: Int) {
         guard index < count else {
             return
         }

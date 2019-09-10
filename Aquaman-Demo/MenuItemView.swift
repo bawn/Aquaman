@@ -1,5 +1,5 @@
 //
-//  AquamanMenuItemView.swift
+//  MenuItemView.swift
 //  Aquaman-Demo
 //
 //  Created by bawn on 2018/12/11.
@@ -25,7 +25,7 @@
 
 import UIKit
 
-class AquamanMenuItemView: UILabel {
+class MenuItemView: UILabel {
     var normalColors = UIColor.white.rgb
     var selectedColors = UIColor.white.rgb
     

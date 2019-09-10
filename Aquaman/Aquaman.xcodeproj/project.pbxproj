@@ -11,7 +11,7 @@
 		DF7F9F0C21E37969000F4317 /* UIViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0521E37968000F4317 /* UIViewController+Additional.swift */; };
 		DF7F9F0D21E37969000F4317 /* UIScrollView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0621E37968000F4317 /* UIScrollView+Additional.swift */; };
 		DF7F9F0E21E37969000F4317 /* AquamanContainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0721E37968000F4317 /* AquamanContainView.swift */; };
-		DF7F9F0F21E37969000F4317 /* AquaScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0821E37968000F4317 /* AquaScrollView.swift */; };
+		DF7F9F0F21E37969000F4317 /* AquaMainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0821E37968000F4317 /* AquaMainScrollView.swift */; };
 		DF7F9F1021E37969000F4317 /* AquamanChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0921E37968000F4317 /* AquamanChildViewController.swift */; };
 		DF7F9F1121E37969000F4317 /* NSCache+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0A21E37968000F4317 /* NSCache+Additional.swift */; };
 		DF7F9F1221E37969000F4317 /* AquamanPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0B21E37968000F4317 /* AquamanPageViewController.swift */; };
@@ -24,7 +24,7 @@
 		DF7F9F0521E37968000F4317 /* UIViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additional.swift"; sourceTree = "<group>"; };
 		DF7F9F0621E37968000F4317 /* UIScrollView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Additional.swift"; sourceTree = "<group>"; };
 		DF7F9F0721E37968000F4317 /* AquamanContainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquamanContainView.swift; sourceTree = "<group>"; };
-		DF7F9F0821E37968000F4317 /* AquaScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaScrollView.swift; sourceTree = "<group>"; };
+		DF7F9F0821E37968000F4317 /* AquaMainScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquaMainScrollView.swift; sourceTree = "<group>"; };
 		DF7F9F0921E37968000F4317 /* AquamanChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquamanChildViewController.swift; sourceTree = "<group>"; };
 		DF7F9F0A21E37968000F4317 /* NSCache+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Additional.swift"; sourceTree = "<group>"; };
 		DF7F9F0B21E37968000F4317 /* AquamanPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquamanPageViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 				DF0DDABA21E35C440086663E /* Aquaman.h */,
 				DF7F9F0B21E37968000F4317 /* AquamanPageViewController.swift */,
 				DF7F9F0921E37968000F4317 /* AquamanChildViewController.swift */,
-				DF7F9F0821E37968000F4317 /* AquaScrollView.swift */,
+				DF7F9F0821E37968000F4317 /* AquaMainScrollView.swift */,
 				DF7F9F0721E37968000F4317 /* AquamanContainView.swift */,
 				DF7F9F0A21E37968000F4317 /* NSCache+Additional.swift */,
 				DF7F9F0621E37968000F4317 /* UIScrollView+Additional.swift */,
@@ -154,7 +154,7 @@
 			files = (
 				DF7F9F1121E37969000F4317 /* NSCache+Additional.swift in Sources */,
 				DF7F9F0D21E37969000F4317 /* UIScrollView+Additional.swift in Sources */,
-				DF7F9F0F21E37969000F4317 /* AquaScrollView.swift in Sources */,
+				DF7F9F0F21E37969000F4317 /* AquaMainScrollView.swift in Sources */,
 				DF7F9F1221E37969000F4317 /* AquamanPageViewController.swift in Sources */,
 				DF7F9F0E21E37969000F4317 /* AquamanContainView.swift in Sources */,
 				DF7F9F0C21E37969000F4317 /* UIViewController+Additional.swift in Sources */,
