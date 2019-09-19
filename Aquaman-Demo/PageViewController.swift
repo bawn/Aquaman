@@ -48,7 +48,7 @@ class PageViewController: AquamanPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         mainScrollView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(updateData))
         switch indexPath.row {
         case 0:

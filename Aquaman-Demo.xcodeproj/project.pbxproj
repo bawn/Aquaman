@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */; };
-		DF786CD92230CB8800DD6955 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; };
+		DF786CD92230CB8800DD6955 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		DF7AC0272320BB9E002E595E /* TheFlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */; };
 		DF7F9F2121E37EEB000F4317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */; };
 		DF7F9F2821E37EEC000F4317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F2721E37EEC000F4317 /* Assets.xcassets */; };
@@ -388,7 +388,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U2HU62KF5U;
+				DEVELOPMENT_TEAM = 8246L2QR6A;
 				INFOPLIST_FILE = "Aquaman-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -408,7 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U2HU62KF5U;
+				DEVELOPMENT_TEAM = 8246L2QR6A;
 				INFOPLIST_FILE = "Aquaman-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

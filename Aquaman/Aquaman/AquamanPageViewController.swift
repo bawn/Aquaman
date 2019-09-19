@@ -473,7 +473,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         
         if memoryCache[index] == nil {
             pageController(self, willCache: viewController, forItemAt: index)
-            memoryCache[index] = viewController // 缓存VC
+            memoryCache[index] = viewController
         }
     }
     

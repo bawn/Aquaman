@@ -233,13 +233,17 @@ class MenuView: UIView {
     
     
     func updateLayout(_ externalScrollView: UIScrollView) {
-        guard currentIndex >= 0
-            , currentIndex < titles.count else {
-                return
+        guard currentIndex >= 0, currentIndex < titles.count else {
+            return
         }
         let scrollViewWidth = externalScrollView.bounds.width
         let offsetX = externalScrollView.contentOffset.x
-        currentIndex = Int(offsetX / scrollViewWidth)
+        let index = Int(offsetX / scrollViewWidth)
+        guard index >= 0, index < titles.count else {
+            return
+        }
+        
+        currentIndex = index
         scrollRate = (offsetX - CGFloat(currentIndex) * scrollViewWidth) / scrollViewWidth
         
         let currentWidth = stackView.arrangedSubviews[currentIndex].bounds.width
