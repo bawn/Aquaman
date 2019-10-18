@@ -31,6 +31,7 @@ class SupermanViewController: UIViewController, AquamanChildViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
     }
     

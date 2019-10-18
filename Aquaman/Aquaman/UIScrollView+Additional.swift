@@ -42,12 +42,12 @@ extension UIScrollView {
         }
     }
     
-    internal var am_originOffset: CGPoint {
+    internal var am_originOffset: CGPoint? {
         get {
-            return (objc_getAssociatedObject(self, &AssociatedKeys.AMOriginOffset) as? CGPoint) ?? .zero
+            return objc_getAssociatedObject(self, &AssociatedKeys.AMOriginOffset) as? CGPoint
         }
         set {
-            guard am_originOffset == .zero else {
+            guard am_originOffset == nil else {
                 return
             }
             objc_setAssociatedObject(self, &AssociatedKeys.AMOriginOffset, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

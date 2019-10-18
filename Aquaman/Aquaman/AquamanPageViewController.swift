@@ -358,22 +358,33 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         originIndex = 0
         
         mainScrollView.am_isCanScroll = true
+        currentChildScrollView?.am_isCanScroll = false
         
         childControllerCount = 0
         
         currentViewController = nil
+        currentChildScrollView?.am_originOffset = nil
         currentChildScrollView = nil
         
         headerView?.removeFromSuperview()
         contentScrollView.contentOffset = .zero
         
         contentStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        memoryCache.removeAllObjects()
+        clearMemoryCache()
         
         containViews.forEach({$0.viewController?.clearFromParent()})
         containViews.removeAll()
         
         countArray.removeAll()
+    }
+    
+    internal func clearMemoryCache() {
+        countArray.forEach { (index) in
+            let viewController = memoryCache[index] as? (UIViewController & AquamanChildViewController)
+            let scrollView = viewController?.aquamanChildScrollView()
+            scrollView?.am_originOffset = nil
+        }
+        memoryCache.removeAllObjects()
     }
     
     private func setupDataSource() {
@@ -446,10 +457,10 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         containView.viewController = targetViewController
         
         let scrollView = targetViewController.aquamanChildScrollView()
-        
         scrollView.am_originOffset = scrollView.contentOffset
+        
         if mainScrollView.contentOffset.y < sillValue {
-            scrollView.contentOffset = scrollView.am_originOffset
+            scrollView.contentOffset = scrollView.am_originOffset ?? .zero
             scrollView.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }
@@ -476,7 +487,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             memoryCache[index] = viewController
         }
     }
-    
+      
     private func layoutChildViewControlls() {
         countArray.forEach { (index) in
             let containView = containViews[index]
@@ -640,11 +651,11 @@ extension AquamanPageViewController: UIScrollViewDelegate {
 extension AquamanPageViewController {
     private func childScrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.am_isCanScroll == false {
-            scrollView.contentOffset = scrollView.am_originOffset
+            scrollView.contentOffset = scrollView.am_originOffset ?? .zero
         }
         let offsetY = scrollView.contentOffset.y
-        if offsetY <= scrollView.am_originOffset.y {
-            scrollView.contentOffset = scrollView.am_originOffset
+        if offsetY <= (scrollView.am_originOffset ?? .zero).y {
+            scrollView.contentOffset = scrollView.am_originOffset ?? .zero
             scrollView.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }
