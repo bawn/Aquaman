@@ -36,7 +36,8 @@ class PageViewController: AquamanPageViewController {
             .selectedTextColor(UIColor.blue),
             .textFont(UIFont.systemFont(ofSize: 15.0)),
             .progressColor(UIColor.blue),
-            .progressHeight(2)
+            .progressHeight(2),
+            .switchStyle(indexPath.row == 0 ? .line : .telescopic)
         )
         view.delegate = self
         return view

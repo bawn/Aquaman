@@ -32,6 +32,12 @@ enum MenuStyle {
     case selectedTextColor(UIColor)
     case progressColor(UIColor)
     case progressHeight(CGFloat)
+    case switchStyle(MenuSwitchStyle)
+}
+
+enum MenuSwitchStyle {
+    case line
+    case telescopic
 }
 
 protocol MenuViewDelegate: class {
@@ -64,6 +70,7 @@ class MenuView: UIView {
     var selectedTextColor = UIColor.red
     var progressColor = UIColor.red
     var progressHeight: CGFloat = 2.0
+    var switchStyle = MenuSwitchStyle.line
     
     init(parts: MenuStyle...) {
         super.init(frame: .zero)
@@ -79,6 +86,8 @@ class MenuView: UIView {
                 progressColor = color
             case .progressHeight(let height):
                 progressHeight = height
+            case .switchStyle(let style):
+                switchStyle = style
             }
         }
         initialize()
@@ -116,9 +125,10 @@ class MenuView: UIView {
             
             stackView.layoutIfNeeded()
             let labelWidth = stackView.arrangedSubviews.first?.bounds.width ?? 0.0
+            let progressWidth = switchStyle == .line ? labelWidth : 10.0
             let offset = stackView.arrangedSubviews.first?.frame.midX ?? 0.0
             progressView.snp.updateConstraints { (make) in
-                make.width.equalTo(labelWidth)
+                make.width.equalTo(progressWidth)
                 make.centerX.equalTo(scrollView.snp.leading).offset(offset)
             }
             checkState(animation: false)
@@ -142,6 +152,15 @@ class MenuView: UIView {
         }
         
         let value = nextLabel.bounds.width - currentLabel.bounds.width
+        return value
+    }
+    
+    private var centerXDifference: CGFloat {
+        guard let currentLabel = currentLabel
+            , let nextLabel = nextLabel else {
+                return 0.0
+        }
+        let value = nextLabel.frame.midX - currentLabel.frame.midX
         return value
     }
     
@@ -249,9 +268,21 @@ class MenuView: UIView {
         let currentWidth = stackView.arrangedSubviews[currentIndex].bounds.width
         let leadingMargin = stackView.arrangedSubviews[currentIndex].frame.midX
 
-        progressView.snp.updateConstraints { (make) in
-            make.width.equalTo(widthDifference * scrollRate + currentWidth)
-            make.centerX.equalTo(scrollView.snp.leading).offset(leadingMargin + itemSpace * scrollRate)
+        switch switchStyle {
+        case .line:
+            progressView.snp.updateConstraints { (make) in
+                make.width.equalTo(widthDifference * scrollRate + currentWidth)
+                make.centerX.equalTo(scrollView.snp.leading).offset(leadingMargin + itemSpace * scrollRate)
+            }
+        case .telescopic:
+            progressView.snp.updateConstraints { (make) in
+                if scrollRate <= 0.5 {
+                    make.width.equalTo(centerXDifference * scrollRate * 1.6 + 10.0);
+                } else {
+                    make.width.equalTo(centerXDifference * (1.0 - scrollRate) * 1.6 + 10.0);
+                }
+                make.centerX.equalTo(scrollView.snp.leading).offset(leadingMargin + itemSpace * scrollRate)
+            }
         }
     }
     

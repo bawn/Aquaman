@@ -44,5 +44,4 @@ class ViewController: UITableViewController {
         }
         pageViewController.indexPath = indexPath
     }
-
 }
