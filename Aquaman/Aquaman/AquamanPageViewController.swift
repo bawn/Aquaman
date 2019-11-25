@@ -208,6 +208,29 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         childScrollViewObservation?.invalidate()
     }
     
+    public func updateHeaderViewHeight(animated: Bool = false, duration: TimeInterval = 0.25, completion: ((Bool) -> Void)? = nil) {
+        headerViewHeight = headerViewHeightFor(self)
+        sillValue = headerViewHeight - menuViewPinHeight
+        
+        mainScrollView.headerViewHeight = headerViewHeight
+        headerViewConstraint?.constant = headerViewHeight
+        
+        if mainScrollView.contentOffset.y < sillValue {
+            currentChildScrollView?.contentOffset = currentChildScrollView?.am_originOffset ?? .zero
+            currentChildScrollView?.am_isCanScroll = false
+            mainScrollView.am_isCanScroll = true
+        }
+        pageController(self, menuView: !mainScrollView.am_isCanScroll)
+        
+        if animated {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.mainScrollView.layoutIfNeeded()
+            }) { (finish) in
+                completion?(finish)
+            }
+        }
+    }
+    
     public func setSelect(index: Int, animation: Bool) {
         let offset = CGPoint(x: contentScrollView.bounds.width * CGFloat(index),
                              y: contentScrollView.contentOffset.y)
@@ -453,7 +476,9 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             targetViewController.view.bottomAnchor.constraint(equalTo: containView.bottomAnchor),
             targetViewController.view.topAnchor.constraint(equalTo: containView.topAnchor),
             ])
+        
         targetViewController.didMove(toParent: self)
+        targetViewController.view.layoutSubviews()
         containView.viewController = targetViewController
         
         let scrollView = targetViewController.aquamanChildScrollView()
@@ -588,7 +613,6 @@ extension AquamanPageViewController: UIScrollViewDelegate {
         if scrollView == mainScrollView {
             pageController(self, mainScrollViewDidScroll: scrollView)
             let offsetY = scrollView.contentOffset.y
-            
             if offsetY >= sillValue {
                 scrollView.contentOffset = CGPoint(x: 0, y: sillValue)
                 currentChildScrollView?.am_isCanScroll = true

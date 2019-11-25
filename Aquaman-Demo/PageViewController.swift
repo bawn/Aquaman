@@ -93,6 +93,13 @@ class PageViewController: AquamanPageViewController {
         }
     }
     
+    @IBAction func rightButtonAction(_ sender: UIButton) {
+        headerViewHeight = CGFloat([250.0, 80, 150].randomElement()!)
+        updateHeaderViewHeight(animated: true, duration: 0.25) { (finish) in
+            
+        }
+    }
+    
     override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
         return headerView
     }
@@ -108,17 +115,13 @@ class PageViewController: AquamanPageViewController {
     override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if index == 0 {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "SupermanViewController") as! SupermanViewController
-            return viewController
+            return storyboard.instantiateViewController(withIdentifier: "SupermanViewController") as! SupermanViewController
         } else if index == 1 {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "BatmanViewController") as! BatmanViewController
-            return viewController
+            return storyboard.instantiateViewController(withIdentifier: "BatmanViewController") as! BatmanViewController
         } else if index == 2 {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "WonderWomanViewController") as! WonderWomanViewController
-            return viewController
+            return storyboard.instantiateViewController(withIdentifier: "WonderWomanViewController") as! WonderWomanViewController
         } else {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "TheFlashViewController") as! TheFlashViewController
-            return viewController
+            return storyboard.instantiateViewController(withIdentifier: "TheFlashViewController") as! TheFlashViewController
         }
     }
     
@@ -161,7 +164,7 @@ class PageViewController: AquamanPageViewController {
     }
     
     override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
-        menuView.backgroundColor = isAdsorption ? .black : .white
+        menuView.backgroundColor = isAdsorption ? .red : .white
     }
     
     
