@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Aquaman"
-  s.version          = "0.0.6"
+  s.version          = "0.0.7"
   s.summary          = "An easy solution to nested scrolling"
   s.homepage         = "https://github.com/bawn/Aquaman"
   s.license          = { :type => "MIT", :file => "LICENSE" }
