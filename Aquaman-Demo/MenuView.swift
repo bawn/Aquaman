@@ -182,7 +182,7 @@ class MenuView: UIView {
                 , oldValue != currentIndex else {
                 return
             }
-            nextIndex = currentIndex + 1
+            nextIndex = min(currentIndex + 1, titles.count - 1)
             currentLabel = menuItemViews[currentIndex]
         }
     }
@@ -288,12 +288,17 @@ class MenuView: UIView {
     
     func checkState(animation: Bool) {
         guard currentIndex >= 0
-            , currentIndex < titles.count
-            , let currentLabel = currentLabel else {
+            , currentIndex < titles.count else {
             return
         }
         menuItemViews.forEach({$0.textColor = normalTextColor})
         menuItemViews[currentIndex].textColor = selectedTextColor
+        
+        self.currentLabel = menuItemViews[currentIndex]
+        self.nextLabel = menuItemViews[nextIndex]
+        guard let currentLabel = currentLabel else {
+            return
+        }
         scrollView.scrollToSuitablePosition(currentLabel, animation)
     }
 }

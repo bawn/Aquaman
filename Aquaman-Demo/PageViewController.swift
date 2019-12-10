@@ -62,7 +62,7 @@ class PageViewController: AquamanPageViewController {
         case 1:
             headerView.isHidden = true
             menuView.isHidden = true
-            mainScrollView.mj_header.beginRefreshing()
+            mainScrollView.mj_header?.beginRefreshing()
         default:
             break
         }
@@ -77,8 +77,8 @@ class PageViewController: AquamanPageViewController {
             self.headerViewHeight = 120.0
             self.menuViewHeight = 54.0
             self.reloadData()
-            if self.mainScrollView.mj_header.isRefreshing {
-                self.mainScrollView.mj_header.endRefreshing()
+            if self.mainScrollView.mj_header?.isRefreshing ?? false {
+                self.mainScrollView.mj_header?.endRefreshing()
             }
         }
     }
@@ -172,6 +172,10 @@ class PageViewController: AquamanPageViewController {
     }
     
     override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+    }
+    
+    override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
+        return .zero
     }
 }
 

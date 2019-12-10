@@ -4,11 +4,20 @@ inhibit_all_warnings!
 workspace 'Aquaman'
 
 target 'Aquaman-Demo' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  project './Aquaman-Demo'
   use_frameworks!
 
   pod 'SnapKit'
   pod 'MJRefresh'
+#  pod 'Reveal-SDK',    '22', :configurations => ['Debug']
   # Pods for Aquaman-Demo
 
 end
+
+target 'Aquaman' do
+  project './Aquaman/Aquaman'
+  use_frameworks!
+  pod 'SnapKit'
+
+end
+
