@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
   s.public_header_files = ["Aquaman/Aquaman/Aquaman.h"]
   s.source_files     = ["Aquaman/Aquaman/*.swift", "Aquaman/Aquaman/Aquaman.h"]
-  s.ios.dependency       "SnapKit"
+  s.ios.dependency       "SnapKit ~> 4.2.0"
 end
