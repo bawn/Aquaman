@@ -8,8 +8,9 @@ Pod::Spec.new do |s|
   s.authors          = { "bawn" => "lc5491137@gmail.com" }
   s.swift_version    = "4.2"
   s.source           = { :git => "https://github.com/bawn/Aquaman.git", :tag => s.version.to_s }
-  s.ios.platform         = :ios, '9.0'
+  s.platform         = :ios, '9.0'
   s.requires_arc     = true
-  s.public_header_files = ["Aquaman/Aquaman/Aquaman.h"]
+  s.dependency       "SnapKit"
+  s.public_header_files = "Aquaman/Aquaman/Aquaman.h"
   s.source_files     = ["Aquaman/Aquaman/*.swift", "Aquaman/Aquaman/Aquaman.h"]
 end

@@ -7,7 +7,7 @@ target 'Aquaman-Demo' do
   project './Aquaman-Demo'
   use_frameworks!
 
-  pod 'SnapKit'
+  pod 'SnapKit', '4.2.0'
   pod 'MJRefresh'
 #  pod 'Reveal-SDK',    '22', :configurations => ['Debug']
   # Pods for Aquaman-Demo
@@ -16,8 +16,6 @@ end
 
 target 'Aquaman' do
   project './Aquaman/Aquaman'
-  use_frameworks!
-  pod 'SnapKit'
 
 end
 

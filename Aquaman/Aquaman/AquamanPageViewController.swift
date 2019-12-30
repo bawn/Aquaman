@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 
 import UIKit
-import SnapKit
 
 open class AquamanPageViewController: UIViewController, AMPageControllerDataSource, AMPageControllerDelegate {
     
@@ -59,9 +58,15 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
 
+    private var contentScrollViewConstraint: NSLayoutConstraint?
+    private var menuViewConstraint: NSLayoutConstraint?
+    private var headerViewConstraint: NSLayoutConstraint?
+    private var mainScrollViewConstraints: [NSLayoutConstraint] = []
+    
     private var headerViewHeight: CGFloat = 0.0
     private let headerContentView = UIView()
     private let menuContentView = UIView()
@@ -92,7 +97,6 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         delegate = self
     }
     
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,16 +112,6 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         }
     }
     
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        mainScrollView.isScrollEnabled = true
-    }
-    
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        mainScrollView.isScrollEnabled = false
-    }
-    
     deinit {
         childScrollViewObservation?.invalidate()
     }
@@ -127,7 +121,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         sillValue = headerViewHeight - menuViewPinHeight
         
         mainScrollView.headerViewHeight = headerViewHeight
-        headerContentView.snp.updateConstraints({$0.height.equalTo(headerViewHeight)})
+        headerViewConstraint?.constant = headerViewHeight
         
         if mainScrollView.contentOffset.y < sillValue {
             currentChildScrollView?.contentOffset = currentChildScrollView?.am_originOffset ?? .zero
@@ -213,49 +207,72 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         countArray = Array(stride(from: 0, to: childControllerCount, by: 1))
     }
     
-    
     private func setupOriginContent() {
         
         mainScrollView.headerViewHeight = headerViewHeight
         mainScrollView.menuViewHeight = menuViewHeight
         
         view.addSubview(mainScrollView)
-        mainScrollView.snp.makeConstraints({$0.edges.equalTo(contentInsetFor(self))})
+        let contentInset = contentInsetFor(self)
+        let constraints = [
+            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: contentInset.top),
+            mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: contentInset.left),
+            mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -contentInset.bottom),
+            mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -contentInset.right)
+        ]
+        mainScrollViewConstraints = constraints
+        NSLayoutConstraint.activate(constraints)
+        
         
         mainScrollView.addSubview(headerContentView)
-        headerContentView.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.top.equalToSuperview()
-            make.height.equalTo(headerViewHeight)
-        }
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let headerContentViewHeight = headerContentView.heightAnchor.constraint(equalToConstant: headerViewHeight)
+        headerViewConstraint = headerContentViewHeight
+        NSLayoutConstraint.activate([
+            headerContentView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
+            headerContentView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
+            headerContentView.topAnchor.constraint(equalTo: mainScrollView.topAnchor),
+            headerContentViewHeight,
+        ])
         
         mainScrollView.addSubview(menuContentView)
-        menuContentView.snp.makeConstraints { (make) in
-            make.leading.equalTo(mainScrollView)
-            make.trailing.equalTo(mainScrollView)
-            make.width.equalTo(mainScrollView)
-            make.top.equalTo(headerContentView.snp.bottom)
-            make.height.equalTo(menuViewHeight)
-        }
+        menuContentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let menuContentViewHeight = menuContentView.heightAnchor.constraint(equalToConstant: menuViewHeight)
+        menuViewConstraint = menuContentViewHeight
+        NSLayoutConstraint.activate([
+            menuContentView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
+            menuContentView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
+            menuContentView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            menuContentView.topAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+            menuContentViewHeight
+        ])
+        
         
         mainScrollView.addSubview(contentScrollView)
         
-        contentScrollView.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.top.equalTo(menuContentView.snp.bottom)
-            make.width.equalToSuperview()
-            make.height.equalToSuperview().offset(-menuViewHeight - menuViewPinHeight)
-        }
+        let contentScrollViewHeight = contentScrollView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor, constant: -menuViewHeight - menuViewPinHeight)
+        contentScrollViewConstraint = contentScrollViewHeight
+        NSLayoutConstraint.activate([
+            contentScrollView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor),
+            contentScrollView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor),
+            contentScrollView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor),
+            contentScrollView.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor),
+            contentScrollView.topAnchor.constraint(equalTo: menuContentView.bottomAnchor),
+            contentScrollViewHeight
+            ])
         
         
         contentScrollView.addSubview(contentStackView)
-        contentStackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-            make.height.equalToSuperview()
-        }
+        
+        NSLayoutConstraint.activate([
+            contentStackView.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor),
+            contentStackView.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor),
+            contentStackView.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+            contentStackView.heightAnchor.constraint(equalTo: contentScrollView.heightAnchor)
+        ])
         
         mainScrollView.bringSubviewToFront(menuContentView)
     }
@@ -263,10 +280,17 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private func updateOriginContent() {
         mainScrollView.headerViewHeight = headerViewHeight
         mainScrollView.menuViewHeight = menuViewHeight
-        mainScrollView.snp.updateConstraints({$0.edges.equalTo(contentInsetFor(self))})
-        headerContentView.snp.updateConstraints({$0.height.equalTo(headerViewHeight)})
-        menuContentView.snp.updateConstraints({$0.height.equalTo(menuViewHeight)})
-        contentScrollView.snp.updateConstraints({$0.height.equalToSuperview().offset(-menuViewHeight - menuViewPinHeight)})
+        
+        if mainScrollViewConstraints.count == 4 {
+            let contentInset = contentInsetFor(self)
+            mainScrollViewConstraints.first?.constant = contentInset.top
+            mainScrollViewConstraints[1].constant = contentInset.left
+            mainScrollViewConstraints[2].constant = -contentInset.bottom
+            mainScrollViewConstraints.last?.constant = -contentInset.right
+        }
+        headerViewConstraint?.constant = headerViewHeight
+        menuViewConstraint?.constant = menuViewHeight
+        contentScrollViewConstraint?.constant = -menuViewHeight - menuViewPinHeight
     }
     
     private func clear() {
@@ -309,18 +333,33 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         
         if let headerView = headerView {
             headerContentView.addSubview(headerView)
-            headerView.snp.makeConstraints({$0.edges.equalToSuperview()})
+            headerView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                headerView.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
+                headerView.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor),
+                headerView.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+                headerView.topAnchor.constraint(equalTo: headerContentView.topAnchor)
+                ])
         }
         
         if let menuView = menuView {
             menuContentView.addSubview(menuView)
-            menuView.snp.makeConstraints({$0.edges.equalToSuperview()})
+            menuView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                menuView.leadingAnchor.constraint(equalTo: menuContentView.leadingAnchor),
+                menuView.trailingAnchor.constraint(equalTo: menuContentView.trailingAnchor),
+                menuView.bottomAnchor.constraint(equalTo: menuContentView.bottomAnchor),
+                menuView.topAnchor.constraint(equalTo: menuContentView.topAnchor)
+                ])
         }
         
         countArray.forEach { (_) in
             let containView = AquamanContainView()
             contentStackView.addArrangedSubview(containView)
-            containView.snp.makeConstraints({$0.size.equalTo(contentScrollView)})
+            NSLayoutConstraint.activate([
+                containView.heightAnchor.constraint(equalTo: contentScrollView.heightAnchor),
+                containView.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor)
+                ])
             containViews.append(containView)
         }
     }
@@ -348,7 +387,13 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         
         addChild(targetViewController)
         containView.addSubview(targetViewController.view)
-        targetViewController.view.snp.makeConstraints({$0.edges.equalToSuperview()})
+        targetViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            targetViewController.view.leadingAnchor.constraint(equalTo: containView.leadingAnchor),
+            targetViewController.view.trailingAnchor.constraint(equalTo: containView.trailingAnchor),
+            targetViewController.view.bottomAnchor.constraint(equalTo: containView.bottomAnchor),
+            targetViewController.view.topAnchor.constraint(equalTo: containView.topAnchor),
+            ])
         
         targetViewController.didMove(toParent: self)
         targetViewController.view.layoutSubviews()
@@ -558,4 +603,3 @@ extension AquamanPageViewController {
         }
     }
 }
-
