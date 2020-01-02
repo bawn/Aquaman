@@ -146,7 +146,7 @@ class PageViewController: AquamanPageViewController {
     }
     
     override func menuViewPinHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
-        return UIApplication.shared.statusBarFrame.height + 44.0
+        return 0.0
     }
 
     
@@ -175,7 +175,14 @@ class PageViewController: AquamanPageViewController {
     }
     
     override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
-        return .zero
+        switch indexPath.row {
+        case 0:
+            return UIEdgeInsets(top: -UIApplication.shared.statusBarFrame.height, left: 0, bottom: 0, right: 0)
+        case 1:
+            return .zero
+        default:
+            return .zero
+        }
     }
 }
 

@@ -211,11 +211,16 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         
         mainScrollView.headerViewHeight = headerViewHeight
         mainScrollView.menuViewHeight = menuViewHeight
+        if #available(iOS 13.0, *) {
+            mainScrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         
         view.addSubview(mainScrollView)
         let contentInset = contentInsetFor(self)
         let constraints = [
-            mainScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: contentInset.top),
+            mainScrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: contentInset.top),
             mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: contentInset.left),
             mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -contentInset.bottom),
             mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -contentInset.right)
