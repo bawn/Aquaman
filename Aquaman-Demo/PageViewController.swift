@@ -26,22 +26,39 @@
 import UIKit
 import MJRefresh
 import Aquaman
+import Trident
 
 class PageViewController: AquamanPageViewController {
 
     var indexPath = IndexPath(row: 0, section: 0)
-    private lazy var menuView: MenuView = {
-        let view = MenuView(parts:
+    lazy var menuView: TridentMenuView = {
+        let view = TridentMenuView(parts:
             .normalTextColor(UIColor.gray),
             .selectedTextColor(UIColor.blue),
             .textFont(UIFont.systemFont(ofSize: 15.0)),
-            .progressColor(UIColor.blue),
-            .progressHeight(2),
-            .switchStyle(indexPath.row == 0 ? .line : .telescopic)
+            .switchStyle(indexPath.row == 0 ? .line : .telescopic),
+            .sliderStyle(
+                SliderViewStyle(parts:
+                    .backgroundColor(.blue),
+                    .height(3.0),
+                    .cornerRadius(1.5),
+                    .position(.bottom),
+                    .extraWidth(4.0),
+                    .originWidth(30.0),
+                    .shape(indexPath.row == 0 ? .triangle : .line),
+                    .elasticValue(1.2)
+                )
+            ),
+            .bottomLineStyle(
+                BottomLineViewStyle(parts:
+                    .hidden(indexPath.row == 0 ? false : true)
+                )
+            )
         )
         view.delegate = self
         return view
     }()
+    
     private let headerView = HeaderView()
     private lazy var count = indexPath.row == 0 ? 3 : 0
     private var headerViewHeight: CGFloat = 200.0
@@ -49,16 +66,12 @@ class PageViewController: AquamanPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        menuView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         mainScrollView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(updateData))
         switch indexPath.row {
         case 0:
             menuView.titles = ["Superman", "Batman", "Wonder Woman"]
-            if #available(iOS 11.0, *) {
-                mainScrollView.contentInsetAdjustmentBehavior = .never
-            } else {
-                automaticallyAdjustsScrollViewInsets = false
-            }
         case 1:
             headerView.isHidden = true
             menuView.isHidden = true
@@ -188,7 +201,7 @@ class PageViewController: AquamanPageViewController {
 
 
 extension PageViewController: MenuViewDelegate {
-    func menuView(_ menuView: MenuView, didSelectedItemAt index: Int) {
+    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
         guard index < count else {
             return
         }
