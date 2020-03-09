@@ -109,7 +109,7 @@ class PageViewController: AquamanPageViewController {
     @IBAction func rightButtonAction(_ sender: UIButton) {
         headerViewHeight = CGFloat([250.0, 80, 150].randomElement()!)
         updateHeaderViewHeight(animated: true, duration: 0.25) { (finish) in
-            
+
         }
     }
     
@@ -173,7 +173,7 @@ class PageViewController: AquamanPageViewController {
     
     override func pageController(_ pageController: AquamanPageViewController,
                                  contentScrollViewDidEndScroll scrollView: UIScrollView) {
-        menuView.checkState(animation: true)
+        
     }
     
     override func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
@@ -185,6 +185,7 @@ class PageViewController: AquamanPageViewController {
     }
     
     override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+        menuView.checkState(animation: true)
     }
     
     override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {

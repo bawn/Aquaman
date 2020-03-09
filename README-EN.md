@@ -30,15 +30,17 @@ pod 'Aquaman'
 
 ## Usage
 
-首先需要导入 Aquaman
+First make sure to import the framework:
 
 ```
 import Aquaman
 ```
 
+Basically, we just need to provide the list of child view controllers to show. Then call some necessary methods.
 
+Let's see the steps to do this:
 
-#### 创建 AquamanPageViewController 子类
+#### Create a AquamanPageViewController subclass
 
 ```swift
 import Aquaman
@@ -48,7 +50,7 @@ class PageViewController: AquamanPageViewController {
 }
 ```
 
-#### 重写协议方法提供 viewController 和相应的数量
+#### Provide the view controllers that will appear embedded into the AquamanPageViewController
 
 ```swift
 override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
@@ -62,7 +64,7 @@ override func pageController(_ pageController: AquamanPageViewController, viewCo
     
 ```
 
-注意：所提供的 viewController 必须都遵守 `AquamanChildViewController` 协议，并实现 `func aquamanChildScrollView() -> UIScrollView` 方法
+Every UIViewController that will appear within the AquamanPageViewController should conform to `AquamanChildViewController` by implementing `func aquamanChildScrollView() -> UIScrollView` 
 
 ```swift
 import Aquaman
@@ -78,7 +80,7 @@ class ChildViewController: UIViewController, AquamanChildViewController {
 
 
 
-#### 重写协议方法提供 headerView 及其高度
+#### Provide the headerView and headerView height 
 
 ```swift
 override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -90,7 +92,7 @@ override func headerViewHeightFor(_ pageController: AquamanPageViewController) -
 }
 ```
 
-#### 重写协议方法提供 menuView 及其高度
+#### Provide the menuView and menuView height
 
 ```swift
 override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
@@ -102,9 +104,7 @@ override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> 
 }
 ```
 
-menuView 需要开发者自己实现（原因在于 menuView  有时候有高度定制性，demo 中有 menuView 的实现方法）
-
-#### 更新 menuView 的布局
+#### Update menuView's layout when content scroll view did scroll and check state when did end scoll
 
 ```swift
 override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
@@ -117,7 +117,7 @@ override func pageController(_ pageController: AquamanPageViewController,
 }
 ```
 
-包括在内容的滚动的时候和停止滚动的时候，具体可参考 demo
+
 
 ## Examples
 
