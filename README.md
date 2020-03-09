@@ -64,7 +64,7 @@ override func pageController(_ pageController: AquamanPageViewController, viewCo
     
 ```
 
-**注意：**所提供的 viewController 必须都遵守 `AquamanChildViewController` 协议，并实现 `func aquamanChildScrollView() -> UIScrollView` 方法
+注意： 所提供的 viewController 必须都遵守 `AquamanChildViewController` 协议，并实现 `func aquamanChildScrollView() -> UIScrollView` 方法
 
 ```swift
 import Aquaman
