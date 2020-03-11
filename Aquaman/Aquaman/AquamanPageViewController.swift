@@ -74,8 +74,6 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private var menuViewPinHeight: CGFloat = 0.0
     private var sillValue: CGFloat = 0.0
     private var childControllerCount = 0
-    private var headerView: UIView?
-    private var menuView: UIView?
     private var countArray = [Int]()
     private var containViews = [AquamanContainView]()
     private var currentChildScrollView: UIScrollView?
@@ -194,10 +192,8 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private func obtainDataSource() {
         originIndex = originIndexFor(self)
         
-        headerView = headerViewFor(self)
         headerViewHeight = headerViewHeightFor(self)
         
-        menuView = menuViewFor(self)
         menuViewHeight = menuViewHeightFor(self)
         menuViewPinHeight = menuViewPinHeightFor(self)
         
@@ -312,7 +308,8 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         currentChildScrollView?.am_originOffset = nil
         currentChildScrollView = nil
         
-        headerView?.removeFromSuperview()
+        menuContentView.subviews.forEach({$0.removeFromSuperview()})
+        headerContentView.subviews.forEach({$0.removeFromSuperview()})
         contentScrollView.contentOffset = .zero
         
         contentStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
@@ -336,27 +333,26 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private func setupDataSource() {
         memoryCache.countLimit = childControllerCount
         
-        if let headerView = headerView {
-            headerContentView.addSubview(headerView)
-            headerView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                headerView.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
-                headerView.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor),
-                headerView.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
-                headerView.topAnchor.constraint(equalTo: headerContentView.topAnchor)
-                ])
-        }
+        let headerView = headerViewFor(self)
+        headerContentView.addSubview(headerView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            headerView.leadingAnchor.constraint(equalTo: headerContentView.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: headerContentView.trailingAnchor),
+            headerView.bottomAnchor.constraint(equalTo: headerContentView.bottomAnchor),
+            headerView.topAnchor.constraint(equalTo: headerContentView.topAnchor)
+            ])
         
-        if let menuView = menuView {
-            menuContentView.addSubview(menuView)
-            menuView.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                menuView.leadingAnchor.constraint(equalTo: menuContentView.leadingAnchor),
-                menuView.trailingAnchor.constraint(equalTo: menuContentView.trailingAnchor),
-                menuView.bottomAnchor.constraint(equalTo: menuContentView.bottomAnchor),
-                menuView.topAnchor.constraint(equalTo: menuContentView.topAnchor)
-                ])
-        }
+        let menuView = menuViewFor(self)
+        menuContentView.addSubview(menuView)
+        menuView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            menuView.leadingAnchor.constraint(equalTo: menuContentView.leadingAnchor),
+            menuView.trailingAnchor.constraint(equalTo: menuContentView.trailingAnchor),
+            menuView.bottomAnchor.constraint(equalTo: menuContentView.bottomAnchor),
+            menuView.topAnchor.constraint(equalTo: menuContentView.topAnchor)
+            ])
+        
         
         countArray.forEach { (_) in
             let containView = AquamanContainView()
