@@ -201,7 +201,7 @@ class PageViewController: AquamanPageViewController {
 }
 
 
-extension PageViewController: MenuViewDelegate {
+extension PageViewController: TridentMenuViewDelegate {
     func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
         guard index < count else {
             return
