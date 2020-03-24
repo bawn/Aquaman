@@ -35,18 +35,17 @@ class PageViewController: AquamanPageViewController {
         let view = TridentMenuView(parts:
             .normalTextColor(UIColor.gray),
             .selectedTextColor(UIColor.blue),
-            .textFont(UIFont.systemFont(ofSize: 15.0)),
-            .switchStyle(indexPath.row == 0 ? .line : .telescopic),
+            .normalTextFont(UIFont.systemFont(ofSize: 15.0)),
+            .selectedTextFont(UIFont.systemFont(ofSize: 15.0, weight: .medium)),
+            .switchStyle(.line),
             .sliderStyle(
                 SliderViewStyle(parts:
                     .backgroundColor(.blue),
                     .height(3.0),
                     .cornerRadius(1.5),
                     .position(.bottom),
-                    .extraWidth(4.0),
-                    .originWidth(30.0),
-                    .shape(indexPath.row == 0 ? .triangle : .line),
-                    .elasticValue(1.2)
+                    .extraWidth(indexPath.row == 0 ? -10.0 : 4.0),
+                    .shape(indexPath.row == 0 ? .line : .triangle)
                 )
             ),
             .bottomLineStyle(
