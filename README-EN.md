@@ -104,16 +104,15 @@ override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> 
 }
 ```
 
-#### Update menuView's layout when content scroll view did scroll and check state when did end scoll
+#### Update menuView's layout when content scroll view did scroll and check state when viewController did end isplay
 
 ```swift
 override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
     menuView.updateLayout(scrollView)
 }
 
-override func pageController(_ pageController: AquamanPageViewController,
-                             contentScrollViewDidEndScroll scrollView: UIScrollView) {
-    menuView.checkState()
+override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
+        menuView.checkState(animation: true)
 }
 ```
 
