@@ -11,7 +11,7 @@ target 'Aquaman-Demo' do
   pod 'MJRefresh'
   pod 'Trident'
 #  pod 'Reveal-SDK',    '22', :configurations => ['Debug']
-  # Pods for Aquaman-Demo
+# Pods for Aquaman-Demo
 
 end
 
