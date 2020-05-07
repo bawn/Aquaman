@@ -129,7 +129,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         pageController(self, menuView: !mainScrollView.am_isCanScroll)
         
         if animated {
-            UIView.animate(withDuration: 0.25, animations: {
+            UIView.animate(withDuration: duration, animations: {
                 self.mainScrollView.layoutIfNeeded()
             }) { (finish) in
                 completion?(finish)
@@ -387,6 +387,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         pageController(self, willDisplay: targetViewController, forItemAt: index)
         
         addChild(targetViewController)
+        targetViewController.beginAppearanceTransition(true, animated: false)
         containView.addSubview(targetViewController.view)
         targetViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -395,7 +396,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             targetViewController.view.bottomAnchor.constraint(equalTo: containView.bottomAnchor),
             targetViewController.view.topAnchor.constraint(equalTo: containView.topAnchor),
             ])
-        
+        targetViewController.endAppearanceTransition()
         targetViewController.didMove(toParent: self)
         targetViewController.view.layoutSubviews()
         containView.viewController = targetViewController

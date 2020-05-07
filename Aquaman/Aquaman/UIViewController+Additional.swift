@@ -34,7 +34,9 @@ extension UIViewController {
     
     func clearFromParent() {
         willMove(toParent: nil)
+        beginAppearanceTransition(true, animated: false)
         view.removeFromSuperview()
+        endAppearanceTransition()
         removeFromParent()
     }
 }
