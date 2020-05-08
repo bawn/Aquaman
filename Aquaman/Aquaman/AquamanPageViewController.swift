@@ -114,7 +114,10 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         childScrollViewObservation?.invalidate()
     }
     
-    public func updateHeaderViewHeight(animated: Bool = false, duration: TimeInterval = 0.25, completion: ((Bool) -> Void)? = nil) {
+    public func updateHeaderViewHeight(animated: Bool = false,
+                                       duration: TimeInterval = 0.25,
+                                       completion: ((Bool) -> Void)? = nil) {
+        
         headerViewHeight = headerViewHeightFor(self)
         sillValue = headerViewHeight - menuViewPinHeight
         
@@ -126,14 +129,16 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             currentChildScrollView?.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }
-        pageController(self, menuView: !mainScrollView.am_isCanScroll)
-        
+        let isAdsorption = headerViewHeight <= 0.0 ? true : !mainScrollView.am_isCanScroll
+        self.pageController(self, menuView: isAdsorption)
         if animated {
             UIView.animate(withDuration: duration, animations: {
                 self.mainScrollView.layoutIfNeeded()
             }) { (finish) in
                 completion?(finish)
             }
+        } else {
+            completion?(true)
         }
     }
     

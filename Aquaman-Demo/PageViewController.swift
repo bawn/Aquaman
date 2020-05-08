@@ -106,9 +106,12 @@ class PageViewController: AquamanPageViewController {
     }
     
     @IBAction func rightButtonAction(_ sender: UIButton) {
-        headerViewHeight = CGFloat([250.0, 80, 150].randomElement()!)
-        updateHeaderViewHeight(animated: true, duration: 0.25) { (finish) in
-            
+        sender.isEnabled = false
+        var array = [250, 80, 150, 0]
+        array.removeAll(where: {$0 == Int(headerViewHeight)})
+        headerViewHeight = CGFloat(array.randomElement()!)
+        updateHeaderViewHeight(animated: [true, false].randomElement()!, duration: 0.25) { (finish) in
+            sender.isEnabled = true
         }
     }
     
