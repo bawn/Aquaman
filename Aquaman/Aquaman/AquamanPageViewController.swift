@@ -83,6 +83,10 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private weak var dataSource: AMPageControllerDataSource?
     private weak var delegate: AMPageControllerDelegate?
     
+    open override var shouldAutomaticallyForwardAppearanceMethods: Bool {
+        return false
+    }
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         dataSource = self
@@ -378,7 +382,6 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             return
         }
         viewController.clearFromParent()
-        
         if memoryCache[index] == nil {
             pageController(self, willCache: viewController, forItemAt: index)
             memoryCache[index] = viewController
@@ -388,8 +391,8 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private func layoutChildViewControlls() {
         countArray.forEach { (index) in
             let containView = containViews[index]
-            let isDisplaying = containView.displayingIn(view: view, containView: contentScrollView)
-            isDisplaying ? showChildViewContoller(at: index) : removeChildViewController(at: index)
+            let isDisplayingInScreen = containView.displayingIn(view: view, containView: contentScrollView)
+            isDisplayingInScreen ? showChildViewContoller(at: index) : removeChildViewController(at: index)
         }
     }
     

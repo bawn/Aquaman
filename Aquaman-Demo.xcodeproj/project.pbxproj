@@ -143,8 +143,8 @@
 			children = (
 				DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */,
 				DF7F9F3921E37FA9000F4317 /* PageViewController.swift */,
-				DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */,
 				DF7F9F3821E37FA9000F4317 /* SupermanViewController.swift */,
+				DF7F9F3721E37FA9000F4317 /* BatmanViewController.swift */,
 				DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */,
 				DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */,
 				DF7F9F3221E37FA9000F4317 /* HeaderView.swift */,

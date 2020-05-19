@@ -60,7 +60,7 @@ class PageViewController: AquamanPageViewController {
     
     private let headerView = HeaderView()
     private lazy var count = indexPath.row == 0 ? 3 : 0
-    private var headerViewHeight: CGFloat = 200.0
+    var headerViewHeight: CGFloat = 200.0
     private var menuViewHeight: CGFloat = 54.0
     
     override func viewDidLoad() {
@@ -102,16 +102,6 @@ class PageViewController: AquamanPageViewController {
             navigationController?.setNavigationBarHidden(true, animated: animated)
         default:
             break
-        }
-    }
-    
-    @IBAction func rightButtonAction(_ sender: UIButton) {
-        sender.isEnabled = false
-        var array = [250, 80, 150, 0]
-        array.removeAll(where: {$0 == Int(headerViewHeight)})
-        headerViewHeight = CGFloat(array.randomElement()!)
-        updateHeaderViewHeight(animated: [true, false].randomElement()!, duration: 0.25) { (finish) in
-            sender.isEnabled = true
         }
     }
     
