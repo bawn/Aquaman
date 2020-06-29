@@ -17,6 +17,7 @@
 		DF7F9F1021E37969000F4317 /* AquamanChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0921E37968000F4317 /* AquamanChildViewController.swift */; };
 		DF7F9F1121E37969000F4317 /* NSCache+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0A21E37968000F4317 /* NSCache+Additional.swift */; };
 		DF7F9F1221E37969000F4317 /* AquamanPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F0B21E37968000F4317 /* AquamanPageViewController.swift */; };
+		DFFEA09D24A8A5BE0043D896 /* AquamanPageViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFEA09C24A8A5BE0043D896 /* AquamanPageViewController+Additional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DF7F9F0921E37968000F4317 /* AquamanChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquamanChildViewController.swift; sourceTree = "<group>"; };
 		DF7F9F0A21E37968000F4317 /* NSCache+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Additional.swift"; sourceTree = "<group>"; };
 		DF7F9F0B21E37968000F4317 /* AquamanPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AquamanPageViewController.swift; sourceTree = "<group>"; };
+		DFFEA09C24A8A5BE0043D896 /* AquamanPageViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AquamanPageViewController+Additional.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				DF0DDABA21E35C440086663E /* Aquaman.h */,
 				DF744C3B239F4F1F003A8EB4 /* AquamanProtocol.swift */,
 				DF7F9F0B21E37968000F4317 /* AquamanPageViewController.swift */,
+				DFFEA09C24A8A5BE0043D896 /* AquamanPageViewController+Additional.swift */,
 				DF7F9F0921E37968000F4317 /* AquamanChildViewController.swift */,
 				DF7F9F0821E37968000F4317 /* AquaMainScrollView.swift */,
 				DF7F9F0721E37968000F4317 /* AquamanContainView.swift */,
@@ -209,6 +212,7 @@
 				DF7F9F1121E37969000F4317 /* NSCache+Additional.swift in Sources */,
 				DF7F9F0D21E37969000F4317 /* UIScrollView+Additional.swift in Sources */,
 				DF7F9F0F21E37969000F4317 /* AquaMainScrollView.swift in Sources */,
+				DFFEA09D24A8A5BE0043D896 /* AquamanPageViewController+Additional.swift in Sources */,
 				DF7F9F1221E37969000F4317 /* AquamanPageViewController.swift in Sources */,
 				DF7F9F0E21E37969000F4317 /* AquamanContainView.swift in Sources */,
 				DF7F9F0C21E37969000F4317 /* UIViewController+Additional.swift in Sources */,

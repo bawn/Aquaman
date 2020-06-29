@@ -52,6 +52,8 @@ extension SupermanViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = "Update head view height"
         } else if indexPath.row == 1 {
             cell.textLabel?.text = "Set select"
+        } else {
+            cell.textLabel?.text = "Title"
         }
         return cell
     }
