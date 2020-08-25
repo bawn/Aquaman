@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 protocol AMPageControllerDataSource: class {
     
