@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Aquaman",
+        "repositoryURL": "https://github.com/bugkingK/Aquaman",
+        "state": {
+          "branch": null,
+          "revision": "40080956650a1aa783093f11cfb15f781d6ca432",
+          "version": "0.1.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

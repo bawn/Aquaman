@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 
 import Foundation
+import UIKit
 
 extension AquamanPageViewController {
     public func updateHeaderViewHeight(animated: Bool = false,
