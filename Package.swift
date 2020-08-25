@@ -14,7 +14,7 @@ let package = Package(
     targets: [
         .target(
             name: "Aquaman",
-            dependencies: []),
+            dependencies: [], path: "Aquaman/Aquaman"),
         .testTarget(
             name: "AquamanTests",
             dependencies: ["Aquaman"]),

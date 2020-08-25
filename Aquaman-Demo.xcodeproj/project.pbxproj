@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */; };
+		77D9764EB46A55419775F2D6 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */; };
+		851E513024F4B9E600C329CA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */; };
 		DF37AB8C23B9F47D0047FEF9 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; };
 		DF37AB8D23B9F47D0047FEF9 /* Aquaman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DF457BB323B6131F00708C49 /* Aquaman_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF457BB223B6131F00708C49 /* Aquaman_DemoUITests.swift */; };
@@ -49,9 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		080B132EBC36A59AA8F898D2 /* Pods-Aquaman-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aquaman_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0D47E5FC985AA570B5A6E5B /* Pods-Aquaman-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aquaman_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A86685D0616AED53669BBEF /* Pods-Aquaman-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.release.xcconfig"; path = "Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		DF457BB023B6131F00708C49 /* Aquaman-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aquaman-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF457BB223B6131F00708C49 /* Aquaman_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aquaman_DemoUITests.swift; sourceTree = "<group>"; };
 		DF457BB423B6131F00708C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,6 +69,7 @@
 		DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WonderWomanViewController.swift; sourceTree = "<group>"; };
 		DF7F9F4A21E37FBB000F4317 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DFD4116021E84011006E8D77 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F5EA41D9B5EC67782591227C /* Pods-Aquaman-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.debug.xcconfig"; path = "Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,28 +84,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65D7F37414FC0B9668651D87 /* Pods_Aquaman_Demo.framework in Frameworks */,
 				DF37AB8C23B9F47D0047FEF9 /* Aquaman.framework in Frameworks */,
+				851E513024F4B9E600C329CA /* BuildFile in Frameworks */,
+				77D9764EB46A55419775F2D6 /* Pods_Aquaman_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17D2CBEB25F0BF8D91A216BD /* Pods */ = {
+		26D8BFA01A1516C315CC832E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D0D47E5FC985AA570B5A6E5B /* Pods-Aquaman-Demo.debug.xcconfig */,
-				080B132EBC36A59AA8F898D2 /* Pods-Aquaman-Demo.release.xcconfig */,
+				F5EA41D9B5EC67782591227C /* Pods-Aquaman-Demo.debug.xcconfig */,
+				3A86685D0616AED53669BBEF /* Pods-Aquaman-Demo.release.xcconfig */,
 			);
 			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		7E74EA9976E9E47CAA6BDD04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DF786CD82230CB8800DD6955 /* Aquaman.framework */,
-				B20F03B26A9BC44D7EFD96FD /* Pods_Aquaman_Demo.framework */,
+				1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -124,8 +127,8 @@
 				DF7F9F1F21E37EEB000F4317 /* Aquaman-Demo */,
 				DF457BB123B6131F00708C49 /* Aquaman-DemoUITests */,
 				DF7F9F1E21E37EEB000F4317 /* Products */,
-				17D2CBEB25F0BF8D91A216BD /* Pods */,
 				7E74EA9976E9E47CAA6BDD04 /* Frameworks */,
+				26D8BFA01A1516C315CC832E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,18 +185,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF7F9F2F21E37EEC000F4317 /* Build configuration list for PBXNativeTarget "Aquaman-Demo" */;
 			buildPhases = (
-				DF7D11ABDF6D8278A8DD9F63 /* [CP] Check Pods Manifest.lock */,
+				8EF3531CB233F0CACA93EEEF /* [CP] Check Pods Manifest.lock */,
 				DF7F9F1921E37EEB000F4317 /* Sources */,
 				DF7F9F1A21E37EEB000F4317 /* Frameworks */,
 				DF7F9F1B21E37EEB000F4317 /* Resources */,
-				1215CDCEA5B065DA06C6E5D0 /* [CP] Embed Pods Frameworks */,
 				DF37AB8E23B9F47D0047FEF9 /* Embed Frameworks */,
+				D65C893F5D7CA8B838CECDC6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Aquaman-Demo";
+			packageProductDependencies = (
+				851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */,
+			);
 			productName = "Aquaman-Demo";
 			productReference = DF7F9F1D21E37EEB000F4317 /* Aquaman-Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +232,9 @@
 				Base,
 			);
 			mainGroup = DF7F9F1421E37EEB000F4317;
+			packageReferences = (
+				851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */,
+			);
 			productRefGroup = DF7F9F1E21E37EEB000F4317 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,24 +266,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1215CDCEA5B065DA06C6E5D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF7D11ABDF6D8278A8DD9F63 /* [CP] Check Pods Manifest.lock */ = {
+		8EF3531CB233F0CACA93EEEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,6 +286,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D65C893F5D7CA8B838CECDC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -502,7 +511,7 @@
 		};
 		DF7F9F3021E37EEC000F4317 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0D47E5FC985AA570B5A6E5B /* Pods-Aquaman-Demo.debug.xcconfig */;
+			baseConfigurationReference = F5EA41D9B5EC67782591227C /* Pods-Aquaman-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -522,7 +531,7 @@
 		};
 		DF7F9F3121E37EEC000F4317 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 080B132EBC36A59AA8F898D2 /* Pods-Aquaman-Demo.release.xcconfig */;
+			baseConfigurationReference = 3A86685D0616AED53669BBEF /* Pods-Aquaman-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -571,6 +580,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bugkingK/Aquaman";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */;
+			productName = Aquaman;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF7F9F1521E37EEB000F4317 /* Project object */;
 }
