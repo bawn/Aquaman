@@ -47,12 +47,13 @@ extension AquamanPageViewController {
             mainScrollView.am_isCanScroll = false
             manualHandel = true
         }
-        let isAdsorption = (headerViewHeight <= 0.0) ? true : !mainScrollView.am_isCanScroll
+
+        isAdsorption = (headerViewHeight <= 0.0) ? true : !mainScrollView.am_isCanScroll
         if animated {
             UIView.animate(withDuration: duration, animations: {
                 self.mainScrollView.layoutIfNeeded()
                 if manualHandel {
-                    self.pageController(self, menuView: isAdsorption)
+                    self.pageController(self, menuView: self.isAdsorption)
                 }
             }) { (finish) in
                 completion?(finish)
@@ -101,14 +102,15 @@ extension AquamanPageViewController: UIScrollViewDelegate {
                 scrollView.contentOffset = CGPoint(x: 0, y: sillValue)
                 currentChildScrollView?.am_isCanScroll = true
                 scrollView.am_isCanScroll = false
-                pageController(self, menuView: !scrollView.am_isCanScroll)
+                isAdsorption = !scrollView.am_isCanScroll
+                pageController(self, menuView: isAdsorption)
             } else {
-                
-                if scrollView.am_isCanScroll == false {
-                    pageController(self, menuView: true)
+                isAdsorption = scrollView.am_isCanScroll == false
+                if isAdsorption {
+                    pageController(self, menuView: isAdsorption)
                     scrollView.contentOffset = CGPoint(x: 0, y: sillValue)
                 } else {
-                    pageController(self, menuView: false)
+                    pageController(self, menuView: isAdsorption)
                 }
             }
         } else {

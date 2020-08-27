@@ -470,7 +470,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     }
     
     open func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
-        self.isAdsorption = isAdsorption
+        
     }
     
     open func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
