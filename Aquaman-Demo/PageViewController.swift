@@ -25,7 +25,6 @@
 
 import UIKit
 import MJRefresh
-import Aquaman
 import Trident
 
 class PageViewController: AquamanPageViewController {
@@ -67,33 +66,17 @@ class PageViewController: AquamanPageViewController {
         super.viewDidLoad()
         
         menuView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-        mainScrollView.mj_header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(updateData))
         switch indexPath.row {
         case 0:
             menuView.titles = ["Superman", "Batman", "Wonder Woman"]
         case 1:
             headerView.isHidden = true
             menuView.isHidden = true
-            mainScrollView.mj_header?.beginRefreshing()
         default:
             break
         }
     }
     
-    @objc func updateData() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.headerView.isHidden = false
-            self.menuView.isHidden = false
-            self.menuView.titles = ["Superman", "Batman", "Wonder Woman", "The Flash"]
-            self.count = self.menuView.titles.count
-            self.headerViewHeight = 120.0
-            self.menuViewHeight = 54.0
-            self.reloadData()
-            if self.mainScrollView.mj_header?.isRefreshing ?? false {
-                self.mainScrollView.mj_header?.endRefreshing()
-            }
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -178,6 +161,10 @@ class PageViewController: AquamanPageViewController {
     
     override func pageController(_ pageController: AquamanPageViewController, didDisplay viewController: (UIViewController & AquamanChildViewController), forItemAt index: Int) {
         menuView.checkState(animation: true)
+    }
+    
+    override func refreshControlInTop() -> Bool {
+        return false
     }
     
     override func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {

@@ -41,6 +41,8 @@ protocol AMPageControllerDataSource: class {
     /// - Parameter pageController: AquamanPageViewController
     /// - Returns: Int
     func originIndexFor(_ pageController: AquamanPageViewController) -> Int
+    /// Specifies the location of "refreshControl". default: true
+    func refreshControlInTop() -> Bool
 }
 
 protocol AMPageControllerDelegate: class {

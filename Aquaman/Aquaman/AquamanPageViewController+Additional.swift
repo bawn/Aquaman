@@ -160,13 +160,17 @@ extension AquamanPageViewController: UIScrollViewDelegate {
 
 extension AquamanPageViewController {
     internal func childScrollViewDidScroll(_ scrollView: UIScrollView, old: CGPoint?, new: CGPoint?) {
-        guard let old = old, let new = new else { return }
+        guard let old = old, let new = new, old != new else { return }
         if !self.isAdsorption && new.y > old.y && old.y == scrollView.am_originOffset?.y {
             scrollView.contentOffset = scrollView.am_originOffset ?? .zero
         }
         
         let offsetY = scrollView.contentOffset.y
         if offsetY <= (scrollView.am_originOffset ?? .zero).y {
+            if isTopRefreshControl {
+                scrollView.contentOffset = scrollView.am_originOffset ?? .zero
+            }
+            
             scrollView.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }

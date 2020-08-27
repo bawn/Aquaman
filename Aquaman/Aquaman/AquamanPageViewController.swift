@@ -34,14 +34,15 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     lazy public private(set) var mainScrollView: AquaMainScrollView = {
         let scrollView = AquaMainScrollView()
         scrollView.delegate = self
+        scrollView.bounces = true
         scrollView.am_isCanScroll = true
-        scrollView.bounces = false
         return scrollView
     }()
     
     lazy internal var contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.delegate = self
+        scrollView.bounces = false
         scrollView.isPagingEnabled = true
         scrollView.scrollsToTop = false
         scrollView.showsVerticalScrollIndicator = false
@@ -79,6 +80,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     internal var currentChildScrollView: UIScrollView?
     private var childScrollViewObservation: NSKeyValueObservation?
     internal var isAdsorption: Bool = false
+    internal var isTopRefreshControl: Bool = true
     
     private let memoryCache = NSCache<NSString, UIViewController>()
     private weak var dataSource: AMPageControllerDataSource?
@@ -155,6 +157,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         
         sillValue = headerViewHeight - menuViewPinHeight
         countArray = Array(stride(from: 0, to: childControllerCount, by: 1))
+        isTopRefreshControl = refreshControlInTop()
     }
     
     private func setupOriginContent() {
@@ -318,6 +321,9 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
                 ])
             containViews.append(containView)
         }
+        
+        mainScrollView.bounces = isTopRefreshControl
+        contentScrollView.bounces = !isTopRefreshControl
     }
     
     internal func showChildViewContoller(at index: Int) {
@@ -435,6 +441,10 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     open func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
         assertionFailure("Sub-class must implement the AMPageControllerDataSource method")
         return 0
+    }
+    
+    open func refreshControlInTop() -> Bool {
+        return true
     }
     
     open func originIndexFor(_ pageController: AquamanPageViewController) -> Int {
