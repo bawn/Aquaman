@@ -35,13 +35,13 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         let scrollView = AquaMainScrollView()
         scrollView.delegate = self
         scrollView.am_isCanScroll = true
+        scrollView.bounces = false
         return scrollView
     }()
     
     lazy internal var contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.delegate = self
-        scrollView.bounces = false
         scrollView.isPagingEnabled = true
         scrollView.scrollsToTop = false
         scrollView.showsVerticalScrollIndicator = false
@@ -78,6 +78,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     private var containViews = [AquamanContainView]()
     internal var currentChildScrollView: UIScrollView?
     private var childScrollViewObservation: NSKeyValueObservation?
+    internal var isAdsorption: Bool = false
     
     private let memoryCache = NSCache<NSString, UIViewController>()
     private weak var dataSource: AMPageControllerDataSource?
@@ -131,11 +132,8 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         currentIndex = index
         
         childScrollViewObservation?.invalidate()
-        let keyValueObservation = currentChildScrollView?.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] (scrollView, change) in
-            guard let self = self, change.newValue != change.oldValue else {
-                return
-            }
-            self.childScrollViewDidScroll(scrollView)
+        let keyValueObservation = currentChildScrollView?.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] in
+            self?.childScrollViewDidScroll($0, old: $1.oldValue, new: $1.newValue)
         })
         childScrollViewObservation = keyValueObservation
         
@@ -362,7 +360,6 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         scrollView.am_originOffset = scrollView.contentOffset
         
         if mainScrollView.contentOffset.y < sillValue {
-            scrollView.contentOffset = scrollView.am_originOffset ?? .zero
             scrollView.am_isCanScroll = false
             mainScrollView.am_isCanScroll = true
         }
@@ -473,7 +470,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
     }
     
     open func pageController(_ pageController: AquamanPageViewController, menuView isAdsorption: Bool) {
-        
+        self.isAdsorption = isAdsorption
     }
     
     open func contentInsetFor(_ pageController: AquamanPageViewController) -> UIEdgeInsets {
