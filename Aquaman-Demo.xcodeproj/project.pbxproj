@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		77D9764EB46A55419775F2D6 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */; };
-		851E513024F4B9E600C329CA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */; };
-		DF37AB8C23B9F47D0047FEF9 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; };
-		DF37AB8D23B9F47D0047FEF9 /* Aquaman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85256D1D24F8993A00A41043 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85256D1C24F8993A00A41043 /* Aquaman.framework */; };
+		85256D1E24F8993A00A41043 /* Aquaman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85256D1C24F8993A00A41043 /* Aquaman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DF457BB323B6131F00708C49 /* Aquaman_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF457BB223B6131F00708C49 /* Aquaman_DemoUITests.swift */; };
 		DF7AC0272320BB9E002E595E /* TheFlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */; };
 		DF7F9F2121E37EEB000F4317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */; };
@@ -42,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DF37AB8D23B9F47D0047FEF9 /* Aquaman.framework in Embed Frameworks */,
+				85256D1E24F8993A00A41043 /* Aquaman.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +51,8 @@
 /* Begin PBXFileReference section */
 		1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aquaman_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A86685D0616AED53669BBEF /* Pods-Aquaman-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aquaman-Demo.release.xcconfig"; path = "Target Support Files/Pods-Aquaman-Demo/Pods-Aquaman-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		85256D1924F897FC00A41043 /* Aquaman.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Aquaman.framework; path = "../../Library/Developer/Xcode/DerivedData/Aquaman-dandhcuutzysnsetokeyawnxrphp/Build/Products/Debug-iphonesimulator/Aquaman.framework"; sourceTree = "<group>"; };
+		85256D1C24F8993A00A41043 /* Aquaman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Aquaman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF457BB023B6131F00708C49 /* Aquaman-DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aquaman-DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF457BB223B6131F00708C49 /* Aquaman_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aquaman_DemoUITests.swift; sourceTree = "<group>"; };
 		DF457BB423B6131F00708C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,9 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF37AB8C23B9F47D0047FEF9 /* Aquaman.framework in Frameworks */,
-				851E513024F4B9E600C329CA /* BuildFile in Frameworks */,
 				77D9764EB46A55419775F2D6 /* Pods_Aquaman_Demo.framework in Frameworks */,
+				85256D1D24F8993A00A41043 /* Aquaman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,14 +99,15 @@
 				F5EA41D9B5EC67782591227C /* Pods-Aquaman-Demo.debug.xcconfig */,
 				3A86685D0616AED53669BBEF /* Pods-Aquaman-Demo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		7E74EA9976E9E47CAA6BDD04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85256D1C24F8993A00A41043 /* Aquaman.framework */,
 				DF786CD82230CB8800DD6955 /* Aquaman.framework */,
+				85256D1924F897FC00A41043 /* Aquaman.framework */,
 				1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */,
 			);
 			name = Frameworks;
@@ -198,7 +199,6 @@
 			);
 			name = "Aquaman-Demo";
 			packageProductDependencies = (
-				851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */,
 			);
 			productName = "Aquaman-Demo";
 			productReference = DF7F9F1D21E37EEB000F4317 /* Aquaman-Demo.app */;
@@ -233,7 +233,6 @@
 			);
 			mainGroup = DF7F9F1421E37EEB000F4317;
 			packageReferences = (
-				851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = DF7F9F1E21E37EEB000F4317 /* Products */;
 			projectDirPath = "";
@@ -516,6 +515,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8246L2QR6A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Trident\"",
+				);
 				INFOPLIST_FILE = "Aquaman-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,6 +541,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8246L2QR6A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MJRefresh\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Trident\"",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/Aquaman-dandhcuutzysnsetokeyawnxrphp/Build/Products/Debug-iphonesimulator/Aquaman.framework\"",
+				);
 				INFOPLIST_FILE = "Aquaman-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -580,25 +592,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bugkingK/Aquaman";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */;
-			productName = Aquaman;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF7F9F1521E37EEB000F4317 /* Project object */;
 }

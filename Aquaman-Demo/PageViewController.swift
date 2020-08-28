@@ -26,6 +26,7 @@
 import UIKit
 import MJRefresh
 import Trident
+import Aquaman
 
 class PageViewController: AquamanPageViewController {
 
