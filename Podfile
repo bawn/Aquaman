@@ -14,9 +14,3 @@ target 'Aquaman-Demo' do
 # Pods for Aquaman-Demo
 
 end
-
-target 'Aquaman' do
-  project './Aquaman/Aquaman'
-
-end
-
