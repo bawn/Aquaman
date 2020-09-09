@@ -255,6 +255,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
         childScrollViewObservation?.invalidate()
         
         originIndex = 0
+        currentIndex = 0
         
         mainScrollView.am_isCanScroll = true
         currentChildScrollView?.am_isCanScroll = false
