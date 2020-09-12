@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Aquaman",
+        "repositoryURL": "https://github.com/bawn/Aquaman.git",
+        "state": {
+          "branch": null,
+          "revision": "f97de875fac31cabfcd8125047069b40665aa160",
+          "version": "0.1.3"
+        }
+      },
+      {
         "package": "Trident",
         "repositoryURL": "https://github.com/bawn/Trident.git",
         "state": {
