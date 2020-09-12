@@ -1,5 +1,4 @@
-// swift-tools-version:5.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.0
 
 import PackageDescription
 
@@ -14,9 +13,6 @@ let package = Package(
     targets: [
         .target(
             name: "Aquaman",
-            dependencies: [], path: "Aquaman/Aquaman"),
-        .testTarget(
-            name: "AquamanTests",
-            dependencies: ["Aquaman"]),
+            dependencies: [], path: "Aquaman/Aquaman")
     ]
 )
