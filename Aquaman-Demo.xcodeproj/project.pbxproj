@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77D9764EB46A55419775F2D6 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */; };
-		851E513024F4B9E600C329CA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */; };
-		DF37AB8C23B9F47D0047FEF9 /* Aquaman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; };
-		DF37AB8D23B9F47D0047FEF9 /* Aquaman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DF786CD82230CB8800DD6955 /* Aquaman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E70E23AE12A03F719A61B86 /* Pods_Aquaman_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1818A6060E4BCD927F3FAB53 /* Pods_Aquaman_Demo.framework */; };
 		DF457BB323B6131F00708C49 /* Aquaman_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF457BB223B6131F00708C49 /* Aquaman_DemoUITests.swift */; };
 		DF7AC0272320BB9E002E595E /* TheFlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AC0262320BB9E002E595E /* TheFlashViewController.swift */; };
 		DF7F9F2121E37EEB000F4317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F2021E37EEB000F4317 /* AppDelegate.swift */; };
@@ -22,6 +19,7 @@
 		DF7F9F4521E37FAA000F4317 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3921E37FA9000F4317 /* PageViewController.swift */; };
 		DF7F9F4721E37FAA000F4317 /* WonderWomanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7F9F3B21E37FA9000F4317 /* WonderWomanViewController.swift */; };
 		DF7F9F4B21E37FBB000F4317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7F9F4A21E37FBB000F4317 /* Main.storyboard */; };
+		DF931184250C7D5600870847 /* Trident in Frameworks */ = {isa = PBXBuildFile; productRef = DF931183250C7D5600870847 /* Trident */; };
 		DFD4116121E84011006E8D77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD4116021E84011006E8D77 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DF37AB8D23B9F47D0047FEF9 /* Aquaman.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,9 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF37AB8C23B9F47D0047FEF9 /* Aquaman.framework in Frameworks */,
-				851E513024F4B9E600C329CA /* BuildFile in Frameworks */,
-				77D9764EB46A55419775F2D6 /* Pods_Aquaman_Demo.framework in Frameworks */,
+				3E70E23AE12A03F719A61B86 /* Pods_Aquaman_Demo.framework in Frameworks */,
+				DF931184250C7D5600870847 /* Trident in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +95,6 @@
 				F5EA41D9B5EC67782591227C /* Pods-Aquaman-Demo.debug.xcconfig */,
 				3A86685D0616AED53669BBEF /* Pods-Aquaman-Demo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -198,7 +193,7 @@
 			);
 			name = "Aquaman-Demo";
 			packageProductDependencies = (
-				851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */,
+				DF931183250C7D5600870847 /* Trident */,
 			);
 			productName = "Aquaman-Demo";
 			productReference = DF7F9F1D21E37EEB000F4317 /* Aquaman-Demo.app */;
@@ -233,7 +228,7 @@
 			);
 			mainGroup = DF7F9F1421E37EEB000F4317;
 			packageReferences = (
-				851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */,
+				DF931182250C7D5600870847 /* XCRemoteSwiftPackageReference "Trident" */,
 			);
 			productRefGroup = DF7F9F1E21E37EEB000F4317 /* Products */;
 			projectDirPath = "";
@@ -582,21 +577,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */ = {
+		DF931182250C7D5600870847 /* XCRemoteSwiftPackageReference "Trident" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bugkingK/Aquaman";
+			repositoryURL = "https://github.com/bawn/Trident.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				minimumVersion = 0.7.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		851E512F24F4B9E600C329CA /* SwiftPackageProductDependency */ = {
+		DF931183250C7D5600870847 /* Trident */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 851E512E24F4B9E600C329CA /* RemoteSwiftPackageReference */;
-			productName = Aquaman;
+			package = DF931182250C7D5600870847 /* XCRemoteSwiftPackageReference "Trident" */;
+			productName = Trident;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

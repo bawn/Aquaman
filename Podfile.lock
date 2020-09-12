@@ -1,25 +1,20 @@
 PODS:
   - MJRefresh (3.5.0)
   - SnapKit (4.2.0)
-  - Trident (0.3.0):
-    - SnapKit (~> 4.2.0)
 
 DEPENDENCIES:
   - MJRefresh
   - SnapKit (= 4.2.0)
-  - Trident
 
 SPEC REPOS:
-  trunk:
+  https://cdn.cocoapods.org/:
     - MJRefresh
     - SnapKit
-    - Trident
 
 SPEC CHECKSUMS:
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  Trident: 76516f68f7d1e267b09d4fd0f02badba5ad56582
 
-PODFILE CHECKSUM: dc1920a5b46e3255a81806804a85aaf0dc27e8f7
+PODFILE CHECKSUM: 6ecab50b368fd719f75735e4d61e03b42a41166e
 
 COCOAPODS: 1.9.3

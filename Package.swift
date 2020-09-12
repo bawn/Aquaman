@@ -14,6 +14,6 @@ let package = Package(
     targets: [
         .target(
             name: "Aquaman",
-            path: "Aquaman/Aquaman")
+            path: "./Aquaman/Aquaman")
     ]
 )
