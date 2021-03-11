@@ -356,7 +356,7 @@ open class AquamanPageViewController: UIViewController, AMPageControllerDataSour
             ])
         targetViewController.endAppearanceTransition()
         targetViewController.didMove(toParent: self)
-        targetViewController.view.layoutSubviews()
+        targetViewController.view.layoutIfNeeded()
         containView.viewController = targetViewController
         
         let scrollView = targetViewController.aquamanChildScrollView()
