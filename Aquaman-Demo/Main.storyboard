@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ak-gN-bFX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ak-gN-bFX">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,11 +39,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="obg-rv-IoR" id="tzy-ws-x3s">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Style1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n0m-HS-Gkj">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="66"/>
+                                                    <rect key="frame" x="20" y="0.0" width="354.66666666666669" height="66"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -59,11 +59,11 @@
                                         <rect key="frame" x="0.0" y="94" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="49R-Ye-rgd" id="vKL-mQ-2py">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Style2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e5P-uv-uUL">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="66"/>
+                                                    <rect key="frame" x="20" y="0.0" width="354.66666666666669" height="66"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -96,10 +96,16 @@
                     <view key="view" contentMode="scaleToFill" id="o8X-Vn-FLv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="AZe-sL-boF"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="C62-U6-Zn4"/>
+                    <navigationItem key="navigationItem" id="C62-U6-Zn4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Q4s-9j-kcJ">
+                            <connections>
+                                <action selector="editAction" destination="nzK-1G-6va" id="tbE-c5-SQL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehR-Gk-Cgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,6 +147,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Pr-hW-xeF"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FTF-PM-Jso" firstAttribute="leading" secondItem="8Pr-hW-xeF" secondAttribute="leading" id="8es-Ef-Rxz"/>
@@ -148,7 +155,6 @@
                             <constraint firstItem="FTF-PM-Jso" firstAttribute="top" secondItem="XOO-z1-KNb" secondAttribute="top" id="U7Y-bZ-C2E"/>
                             <constraint firstItem="FTF-PM-Jso" firstAttribute="bottom" secondItem="8Pr-hW-xeF" secondAttribute="bottom" id="f4R-ij-VM5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="8Pr-hW-xeF"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="FTF-PM-Jso" id="6FC-os-Y67"/>
@@ -203,6 +209,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q92-oA-djh"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FDc-Zd-tOl" firstAttribute="bottom" secondItem="Q92-oA-djh" secondAttribute="bottom" id="5Bz-nt-Kxx"/>
@@ -210,7 +217,6 @@
                             <constraint firstItem="FDc-Zd-tOl" firstAttribute="leading" secondItem="Q92-oA-djh" secondAttribute="leading" id="iMC-6M-Lky"/>
                             <constraint firstItem="FDc-Zd-tOl" firstAttribute="top" secondItem="DSD-Xz-HGV" secondAttribute="top" id="jz8-7O-JmW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Q92-oA-djh"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="FDc-Zd-tOl" id="pDZ-1r-2tY"/>
@@ -256,6 +262,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="t9q-6m-3qB"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F91-74-i7s" firstAttribute="bottom" secondItem="t9q-6m-3qB" secondAttribute="bottom" id="4ht-mB-fkD"/>
@@ -263,7 +270,6 @@
                             <constraint firstItem="F91-74-i7s" firstAttribute="top" secondItem="Spf-OJ-gEM" secondAttribute="top" id="PeW-5A-7gt"/>
                             <constraint firstItem="F91-74-i7s" firstAttribute="leading" secondItem="t9q-6m-3qB" secondAttribute="leading" id="oSr-cY-5t8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="t9q-6m-3qB"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="F91-74-i7s" id="VFZ-Er-Dy8"/>
@@ -321,6 +327,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zTt-W8-fAI"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zTt-W8-fAI" firstAttribute="trailing" secondItem="L7I-YP-1f1" secondAttribute="trailing" id="4VO-Bq-dMG"/>
@@ -328,7 +335,6 @@
                             <constraint firstItem="zTt-W8-fAI" firstAttribute="bottom" secondItem="L7I-YP-1f1" secondAttribute="bottom" id="Ul3-uW-8NI"/>
                             <constraint firstItem="L7I-YP-1f1" firstAttribute="leading" secondItem="zTt-W8-fAI" secondAttribute="leading" id="s1l-nC-5HY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zTt-W8-fAI"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

@@ -3,11 +3,20 @@
     "pins": [
       {
         "package": "Aquaman",
-        "repositoryURL": "https://github.com/bugkingK/Aquaman",
+        "repositoryURL": "https://github.com/bawn/Aquaman.git",
         "state": {
           "branch": null,
-          "revision": "40080956650a1aa783093f11cfb15f781d6ca432",
-          "version": "0.1.2"
+          "revision": "f97de875fac31cabfcd8125047069b40665aa160",
+          "version": "0.1.3"
+        }
+      },
+      {
+        "package": "Trident",
+        "repositoryURL": "https://github.com/bawn/Trident.git",
+        "state": {
+          "branch": null,
+          "revision": "2eed75e69815da6fc28b05c91cd642bca1c40610",
+          "version": "0.7.0"
         }
       }
     ]

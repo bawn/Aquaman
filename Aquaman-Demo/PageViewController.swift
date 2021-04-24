@@ -105,6 +105,13 @@ class PageViewController: AquamanPageViewController {
         }
     }
     
+    @IBAction func editAction() {
+        guard let viewControlelr = self.currentViewController as? SupermanViewController else {
+            return
+        }
+        viewControlelr.tableView.setEditing(!viewControlelr.tableView.isEditing, animated: true)
+    }
+    
     override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
         return headerView
     }
@@ -121,13 +128,8 @@ class PageViewController: AquamanPageViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if index == 0 {
             return storyboard.instantiateViewController(withIdentifier: "SupermanViewController") as! SupermanViewController
-        } else if index == 1 {
-            return storyboard.instantiateViewController(withIdentifier: "BatmanViewController") as! BatmanViewController
-        } else if index == 2 {
-            return storyboard.instantiateViewController(withIdentifier: "WonderWomanViewController") as! WonderWomanViewController
-        } else {
-            return storyboard.instantiateViewController(withIdentifier: "TheFlashViewController") as! TheFlashViewController
-        }
+        } 
+        return storyboard.instantiateViewController(withIdentifier: "WonderWomanViewController") as! WonderWomanViewController
     }
     
     // 默认显示的 ViewController 的 index
@@ -156,7 +158,6 @@ class PageViewController: AquamanPageViewController {
 
     
     override func pageController(_ pageController: AquamanPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
-        
     }
     
     override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
@@ -202,7 +203,7 @@ extension PageViewController: TridentMenuViewDelegate {
         case 0:
             setSelect(index: index, animation: true)
         case 1:
-            setSelect(index: index, animation: false)
+            setSelect(index: index, animation: true)
         default:
             break
         }

@@ -25,25 +25,39 @@
 
 import UIKit
 import Aquaman
+import MJRefresh
 
 class SupermanViewController: UIViewController, AquamanChildViewController {
     @IBOutlet weak var tableView: UITableView!
+    var number = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        
+        tableView.mj_footer = MJRefreshAutoNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
     }
     
     func aquamanChildScrollView() -> UIScrollView {
         return tableView
+    }
+    
+    @objc func loadMoreData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if self.tableView.mj_footer?.isRefreshing ?? false{
+                self.tableView.mj_footer?.endRefreshing()
+                self.number += 20
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
 
 extension SupermanViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return number
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,7 +96,17 @@ extension SupermanViewController: UITableViewDelegate, UITableViewDataSource {
             pageViewController.setSelect(index: pageViewController.currentIndex + 1,
                                          animation: [true, false].randomElement()!)
         } else {
-            navigationController?.popViewController(animated: true)
+//            navigationController?.popViewController(animated: true)
+            tableView.setEditing(!tableView.isEditing, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        number -= 1
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
