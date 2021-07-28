@@ -20,12 +20,19 @@
 
 ## Installation
 
-#### [CocoaPods](http://cocoapods.org/) (recommended)
+#### [CocoaPods](http://cocoapods.org/)
 
 ```
 use_frameworks!
 
 pod 'Aquaman'
+```
+
+#### Swift Package Manager
+Add the following dependency to your Package.swift manifest:
+
+```
+.package(url: "https://github.com/bawn/Aquaman.git", .branch("master")),
 ```
 
 ## Usage
