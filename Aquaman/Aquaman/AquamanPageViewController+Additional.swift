@@ -72,6 +72,12 @@ extension AquamanPageViewController {
         }
     }
     
+    public func scrollToTop(_ animation: Bool) {
+        mainScrollView.setContentOffset(.zero, animated: animation)
+        mainScrollView.am_isCanScroll = true
+        currentChildScrollView?.setContentOffset(currentChildScrollView?.am_originOffset ?? .zero, animated: true)
+    }
+    
     public func reloadData() {
         mainScrollView.isUserInteractionEnabled = false
         clear()
